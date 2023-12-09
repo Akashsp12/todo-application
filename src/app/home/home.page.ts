@@ -106,7 +106,7 @@ export class HomePage {
   }
   hi(ev: any) {
     console.log(ev)
-    alert(ev)
+    // alert(ev)
   }
 
   

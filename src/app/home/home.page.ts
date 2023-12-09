@@ -33,11 +33,7 @@ export class HomePage {
   }
   ngAfterViewInit() {
 
-    this.scrollContainers.changes.subscribe(() => {
-      // After all items are rendered, the changes event fires
-      console.log('All items rendered');
-      // Call your function or perform actions here after all items are rendered
-    });
+ 
   }
   getweekEnd(ev: string) {
 
@@ -67,23 +63,14 @@ export class HomePage {
     })
     const daysInMonth1 = new Date(currentYear, currentMonth + this.temp, 0)
     this.cuurentDate=new Date(currentYear, currentMonth + this.temp, currentDate).getDate()
-    // let start = 0
-    // alert(currentMonth)
-    // if (currentMonth) {
-    //   start = new Date(currentYear, currentMonth + this.temp, currentDate).getDate()
-    // } else {
-    //   start = new Date(currentYear, currentMonth + this.temp, 0).getDate()
-    // }
-    // console.log(daysInMonth)
     console.log(daysInMonth1)
-    // alert(start)
+
 
 
 
     const daysInMonths = new Date(currentYear, currentMonth + this.temp + 1, 0).getDate()
     console.log(daysInMonths)
-    const sub = []
-    // console.log(daysInMonths.indexOf(daysInMonth))
+
     for (let i = 1; i <= daysInMonths; i++) {
 
       const daysInMonthss = new Date(currentYear, currentMonth + this.temp, i)
@@ -94,23 +81,14 @@ export class HomePage {
         day: 'numeric'
       })
 
-      this.finalresult.push(dateInString2)
-      if (ev == 'sub') {
-        console.log(this.finalresult)
-
-        sub.push(dateInString2)
-        console.log(sub)
-        console.log([...sub])
-        // this.finalresult.unshift(dateInString2)
-      }
+    this.finalresult.push(dateInString2)
       if (ev == 'add') {
-
         this.finalresult.concat(dateInString2)
       }
 
     }
 
-    console.log(this.finalresult)
+
 
   }
   hi(ev: any) {

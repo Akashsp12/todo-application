@@ -12,7 +12,7 @@ import { FeatherIconsModule } from '../feather-icons/feather-icons.module';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonButton, IonContent, IonRefresher, IonRefresherContent, IonList, HeaderComponent, DatepickerComponent ,FeatherIconsModule],
+  imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonButton, IonContent, IonRefresher, IonRefresherContent, IonList, HeaderComponent, DatepickerComponent, FeatherIconsModule],
 })
 export class HomePage {
   private data = inject(DataService);
@@ -23,7 +23,8 @@ export class HomePage {
   currentDate: any;
   dateInString: any;
   toggleYear: any;
-  @ViewChildren('scrollContainer', { read: ElementRef }) scrollContainers!:any;
+  @ViewChildren('scrollContainer', { read: ElementRef }) scrollContainers!: any;
+  cuurentDate: any;
   constructor() { }
 
   ngOnInit() {
@@ -31,8 +32,8 @@ export class HomePage {
     this.getweekEnd('')
   }
   ngAfterViewInit() {
-   
-     this.scrollContainers.changes.subscribe(() => {
+
+    this.scrollContainers.changes.subscribe(() => {
       // After all items are rendered, the changes event fires
       console.log('All items rendered');
       // Call your function or perform actions here after all items are rendered
@@ -65,18 +66,26 @@ export class HomePage {
       day: 'numeric'
     })
     const daysInMonth1 = new Date(currentYear, currentMonth + this.temp, 0)
-    const daysInMonth = new Date(currentYear, currentMonth + this.temp, 0).getDate()
-    console.log(daysInMonth)
+    this.cuurentDate=new Date(currentYear, currentMonth + this.temp, currentDate).getDate()
+    // let start = 0
+    // alert(currentMonth)
+    // if (currentMonth) {
+    //   start = new Date(currentYear, currentMonth + this.temp, currentDate).getDate()
+    // } else {
+    //   start = new Date(currentYear, currentMonth + this.temp, 0).getDate()
+    // }
+    // console.log(daysInMonth)
     console.log(daysInMonth1)
+    // alert(start)
 
 
 
-   
     const daysInMonths = new Date(currentYear, currentMonth + this.temp + 1, 0).getDate()
     console.log(daysInMonths)
     const sub = []
+    // console.log(daysInMonths.indexOf(daysInMonth))
     for (let i = 1; i <= daysInMonths; i++) {
-     
+
       const daysInMonthss = new Date(currentYear, currentMonth + this.temp, i)
       const dateInString2 = daysInMonthss.toLocaleDateString('en-us', {
         weekday: 'long',
@@ -95,7 +104,7 @@ export class HomePage {
         // this.finalresult.unshift(dateInString2)
       }
       if (ev == 'add') {
-       
+
         this.finalresult.concat(dateInString2)
       }
 
@@ -109,5 +118,5 @@ export class HomePage {
     // alert(ev)
   }
 
-  
+
 }

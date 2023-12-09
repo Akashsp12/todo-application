@@ -1,17 +1,24 @@
 .cal {
     width: 90%;
-    height: 5rem;
+    height: 4rem;
     margin: 0% auto;
     display: flex;
     align-items: center;
     overflow-x: scroll;
     overflow-y: hidden;
     -ms-overflow-style: none;
-    /* IE and Edge */
     scrollbar-width: none;
-    /* Firefox */
     border-bottom: 1px solid gray;
+    position: relative;
+}
 
+p {
+    position: relative;
+    top: 0rem;
+    left: 1.5rem;
+    font-size: 18px;
+    color: #E26255;
+    font-weight: 800;
 }
 
 .cal::-webkit-scrollbar {

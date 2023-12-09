@@ -1,4 +1,19 @@
 <ion-content [fullscreen]="true">
   <app-header></app-header>
-  <app-datepicker></app-datepicker>
+  <!-- <app-datepicker></app-datepicker> -->
+
+
+<!-- <p></p> -->
+<!-- <ion-button (click)="getweekEnd('sub')">prev</ion-button> -->
+
+
+<div class="cal"  #scrollContainer>
+  <ul *ngFor="let item of finalresult">
+
+    <button (click)="hi(item)" [ngStyle]="{'color': item === dateInString ? 'red' : 'black'}"> {{item.split(',')[1].split(' ')[2]}} <br> {{ (item.split(',')[0] | titlecase) |  slice:0:3}}  </button>
+   
+  </ul>
+  <button class="seeMore" (click)="getweekEnd('add')"><i-feather name="arrow-right-circle" class="big"></i-feather></button>
+</div>
+<!-- {{item.split(' ')[3]}} -->
 </ion-content>

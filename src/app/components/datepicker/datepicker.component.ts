@@ -1,3 +1,4 @@
+import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { IonCol, IonDatetime, IonGrid, IonInfiniteScroll, IonItem, IonLabel, IonRow } from '@ionic/angular/standalone';
 
@@ -6,14 +7,16 @@ import { IonCol, IonDatetime, IonGrid, IonInfiniteScroll, IonItem, IonLabel, Ion
   templateUrl: './datepicker.component.html',
   styleUrls: ['./datepicker.component.scss'],
   standalone: true,
-  imports: [IonLabel, IonDatetime, IonItem,IonRow,IonCol,IonGrid,]
+  imports: [IonLabel, IonDatetime, IonItem,IonRow,IonCol,IonGrid]
 })
 export class DatepickerComponent implements OnInit {
 
   constructor() { }
 
   ngOnInit() { }
-  weekDays = ['Sun','Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', ];
-
+  
+  
  
 }
+
+

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FeatherIconsModule } from '../feather-icons/feather-icons.module';
-import { IonButton, IonButtons, IonContent, IonHeader, IonMenu, IonMenuButton, IonMenuToggle, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { IonButton, IonButtons,IonBadge, IonContent, IonHeader, IonMenu, IonMenuButton, IonMenuToggle, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 
 
 @Component({
@@ -8,7 +8,7 @@ import { IonButton, IonButtons, IonContent, IonHeader, IonMenu, IonMenuButton, I
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
   standalone:true,
-  imports:[FeatherIconsModule,IonMenuButton,IonButton,IonMenu,IonHeader,IonToolbar,IonTitle,IonContent,IonButtons]
+  imports:[FeatherIconsModule,IonMenuButton,IonButton,IonMenu,IonHeader,IonToolbar,IonTitle,IonContent,IonButtons,IonBadge]
 
 })
 

@@ -1,7 +1,8 @@
 <div class="dateSelector">
-    <p>December 2023</p>
+
+    <p id="open-modal" expand="block">{{monthYear}}</p>
     <div class="cal" #scrollContainer>
-        <ul *ngFor="let item of finalresult.slice(cuurentDate-2)">
+        <ul *ngFor="let item of finalresult.slice(sliceDate>0?sliceDate-2:sliceDate)">
             <button *ngIf="dateInString" (click)="hi(item)"
                 [ngStyle]="{'color': item === dateInString ? 'red' : 'black', 'border-bottom': (item === dateInString ? '5px solid #E26255' : 'none')}">
                 <ion-label>
@@ -10,7 +11,14 @@
                 </ion-label>
             </button>
         </ul>
-        <button class="seeMore" (click)="getMoreDates()"><i-feather name="arrow-right-circle" class="big"></i-feather>
-        </button>
+        <!-- <button class="seeMore" (click)="getMoreDates()"><i-feather name="arrow-right-circle" class="big"></i-feather>
+        </button> -->
     </div>
 </div>
+
+  <ion-modal class="model" trigger="open-modal" [initialBreakpoint]="0.2">
+    <ng-template>
+        <ion-datetime presentation="month-year" min="2023-01-01T10:21:52.978-08:00"
+        max="2025-12-01T10:19:04.840-07:00" (ionChange)="monthPicker($event)"></ion-datetime>
+    </ng-template>
+  </ion-modal>

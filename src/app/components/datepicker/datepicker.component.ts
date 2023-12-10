@@ -1,6 +1,6 @@
 import { CommonModule, NgFor } from '@angular/common';
-import { Component, ElementRef, OnInit, ViewChildren } from '@angular/core';
-import { RefresherCustomEvent, IonHeader, IonToolbar, IonTitle, IonContent, IonRefresher, IonRefresherContent, IonList, IonButton, IonLabel } from '@ionic/angular/standalone';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, OnInit, SimpleChanges, ViewChildren } from '@angular/core';
+import { RefresherCustomEvent, IonHeader, IonToolbar, IonTitle, IonContent, IonRefresher, IonRefresherContent, IonList, IonButton, IonLabel, IonDatetime, IonModal } from '@ionic/angular/standalone';
 import { FeatherIconsModule } from 'src/app/feather-icons/feather-icons.module';
 
 @Component({
@@ -8,7 +8,8 @@ import { FeatherIconsModule } from 'src/app/feather-icons/feather-icons.module';
   templateUrl: './datepicker.component.html',
   styleUrls: ['./datepicker.component.scss'],
   standalone: true,
-  imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonButton, IonContent, IonRefresher, IonRefresherContent,IonLabel, IonList,FeatherIconsModule]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [CommonModule, IonHeader, IonToolbar, IonDatetime, IonModal, IonTitle, IonButton, IonContent, IonRefresher, IonRefresherContent, IonLabel, IonList, FeatherIconsModule]
 })
 export class DatepickerComponent implements OnInit {
   temp: number = 0
@@ -19,72 +20,91 @@ export class DatepickerComponent implements OnInit {
   toggleYear: any;
   @ViewChildren('scrollContainer', { read: ElementRef }) scrollContainers!: any;
   cuurentDate: any;
+  Maxdate: any;
+  monthYear: any;
+  sliceDate!: number;
+  currentMonth: any;
+  currentYear: any;
+  previousMonth: any;
 
 
   constructor() { }
 
-  ngOnInit() { 
+  ngOnInit() {
     this.getweekEnd()
   }
-  getMoreDates(){
+  getMoreDates() {
     this.temp++
     this.getweekEnd()
   }
-  
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes)
+  }
+
   getweekEnd() {
 
-    // console.log(this.temp)
-   
-
-      // this.temp++;
-    
     const date = new Date()
-    const currentDate = date.getDate()
-    const currentMonth = date.getMonth()
-    const currentYear = date.getFullYear()
-
-
-
-    this.currentDate = new Date(currentYear, currentMonth, currentDate)
-    this.dateInString = this.currentDate.toLocaleDateString('en-us', {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    })
- 
-    const daysInMonth1 = new Date(currentYear, currentMonth + this.temp, 0)
-    this.cuurentDate=new Date(currentYear, currentMonth + this.temp, currentDate).getDate()
-    console.log(daysInMonth1)
-
-
-
-
-    const daysInMonths = new Date(currentYear, currentMonth + this.temp + 1, 0).getDate()
-    console.log(daysInMonths)
-
-    for (let i = 1; i <= daysInMonths; i++) {
-
-      const daysInMonthss = new Date(currentYear, currentMonth + this.temp, i)
-      const dateInString2 = daysInMonthss.toLocaleDateString('en-us', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      })
-
-    this.finalresult.push(dateInString2)
-    this.finalresult.concat(dateInString2)
-
-    }
-
-
-
+    this.currentDate = date.getDate()
+    this.currentMonth = date.getMonth()
+    this.currentYear = date.getFullYear()
+    console.log(this.currentMonth)
+    console.log(this.currentYear)
+    let currentDates = new Date(this.currentYear, this.currentMonth, this.currentDate)
+    this.dateInString = this.getDateLong(currentDates)
+    this.monthYear = this.getMonthYearLong(this.dateInString)
+    this.sliceDate = new Date(this.currentYear, this.currentMonth + this.temp, this.currentDate).getDate()
+    this.getAllDates()
   }
   hi(ev: any) {
     console.log(ev)
     // alert(ev)
   }
+  monthPicker(ev: any) {
+
+
+    const date = new Date(ev.detail.value)
+    this.cuurentDate = date.getDate();
+    this.currentMonth = date.getMonth();
+    this.currentYear = date.getFullYear();
+
+
+    const daysInMonthss = new Date(this.currentYear, this.currentMonth + 1, 0)
+    const dateInString2 = this.getDateLong(daysInMonthss)
+
+    this.monthYear = this.getMonthYearLong(dateInString2)
+    this.getAllDates()
+
+    this.sliceDate = 0
+  }
+
+
+
+  getAllDates() {
+
+
+    this.finalresult = [] 
+    const daysInMonths = new Date(this.currentYear, this.currentMonth + this.temp + 1, 0).getDate()
+    for (let i = 1; i <= daysInMonths; i++) {
+      const daysInMonthss = new Date(this.currentYear, this.currentMonth + this.temp, i)
+      const dateInString2 = this.getDateLong(daysInMonthss)
+      this.finalresult.push(dateInString2)
+
+    }
+  }
+  getDateLong(date: any) {
+    return date.toLocaleDateString('en-us', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    })
+  }
+
+  getMonthYearLong(date: any) {
+    return `${date.split(', ')[1].split(' ')[0]} ${date.split(', ')[2]}`
+  }
 }
+
 
 

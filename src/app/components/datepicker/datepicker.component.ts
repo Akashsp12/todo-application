@@ -1,5 +1,5 @@
 import { CommonModule, NgFor } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, OnInit, SimpleChanges, ViewChildren } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { RefresherCustomEvent, IonHeader, IonToolbar, IonTitle, IonContent, IonRefresher, IonRefresherContent, IonList, IonButton, IonLabel, IonDatetime, IonModal } from '@ionic/angular/standalone';
 import { FeatherIconsModule } from 'src/app/feather-icons/feather-icons.module';
 
@@ -18,7 +18,7 @@ export class DatepickerComponent implements OnInit {
   currentDate: any;
   dateInString: any;
   toggleYear: any;
-  @ViewChildren('scrollContainer', { read: ElementRef }) scrollContainers!: any;
+  @ViewChild('scrollContainer', { read: ElementRef }) scrollContainerRef!: ElementRef;
   cuurentDate: any;
   Maxdate: any;
   monthYear: any;
@@ -76,6 +76,9 @@ export class DatepickerComponent implements OnInit {
     this.getAllDates()
 
     this.sliceDate = 0
+    if (this.scrollContainerRef && this.scrollContainerRef.nativeElement) {
+      this.scrollContainerRef.nativeElement.scrollTo({ left: 0, behavior: 'smooth' });
+    }
   }
 
 

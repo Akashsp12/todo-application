@@ -1,5 +1,5 @@
 import { CommonModule, NgFor } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, OnInit, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
 import { RefresherCustomEvent, IonHeader, IonToolbar, IonTitle, IonContent, IonRefresher, IonRefresherContent, IonList, IonButton, IonLabel, IonDatetime, IonModal } from '@ionic/angular/standalone';
 import { FeatherIconsModule } from 'src/app/feather-icons/feather-icons.module';
 
@@ -9,9 +9,11 @@ import { FeatherIconsModule } from 'src/app/feather-icons/feather-icons.module';
   styleUrls: ['./datepicker.component.scss'],
   standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  // encapsulation: ViewEncapsulation.None,
   imports: [CommonModule, IonHeader, IonToolbar, IonDatetime, IonModal, IonTitle, IonButton, IonContent, IonRefresher, IonRefresherContent, IonLabel, IonList, FeatherIconsModule]
 })
 export class DatepickerComponent implements OnInit {
+[x: string]: any;
   temp: number = 0
   finalresult: any[] = [];
   result: any[] = ['1', '2', '3']
@@ -26,6 +28,7 @@ export class DatepickerComponent implements OnInit {
   currentMonth: any;
   currentYear: any;
   previousMonth: any;
+new: any;
 
 
   constructor() { }
@@ -60,7 +63,7 @@ export class DatepickerComponent implements OnInit {
     console.log(ev)
     // alert(ev)
   }
-  monthPicker(ev: any) {
+  monthPicker(ev: any,modal:any) {
 
 
     const date = new Date(ev.detail.value)
@@ -79,6 +82,7 @@ export class DatepickerComponent implements OnInit {
     if (this.scrollContainerRef && this.scrollContainerRef.nativeElement) {
       this.scrollContainerRef.nativeElement.scrollTo({ left: 0, behavior: 'smooth' });
     }
+    modal.dismiss()
   }
 
 

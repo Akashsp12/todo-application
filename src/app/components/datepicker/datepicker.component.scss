@@ -76,3 +76,10 @@ ion-datetime {
     width:90%;
     margin: 0% auto;
 }
+@media (min-width:769px) {
+    ion-datetime {
+     
+        margin: 10% auto;
+     
+    }  
+}

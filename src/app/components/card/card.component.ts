@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
-  standalone:true
+  standalone:true,
+  encapsulation: ViewEncapsulation.ShadowDom,
 })
 export class CardComponent  implements OnInit {
 

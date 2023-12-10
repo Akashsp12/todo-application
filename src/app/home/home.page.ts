@@ -11,6 +11,7 @@ import { IonContent } from '@ionic/angular/standalone';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
+  
   imports: [IonContent, HeaderComponent, DatepickerComponent, FeatherIconsModule,CardComponent],
 })
 export class HomePage {

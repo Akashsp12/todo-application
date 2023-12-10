@@ -1,6 +1,6 @@
 <div class="dateSelector">
 
-    <p id="open-modal" expand="block">{{monthYear}}</p>
+    <p id="datePickerModel" expand="block">{{monthYear}}</p>
     <div class="cal" #scrollContainer>
         <ul *ngFor="let item of finalresult.slice(sliceDate>0?sliceDate-2:sliceDate)">
             <button *ngIf="dateInString" (click)="hi(item)"
@@ -16,9 +16,9 @@
     </div>
 </div>
 
-  <ion-modal class="model" trigger="open-modal" [initialBreakpoint]="0.2">
+  <ion-modal #model class="model" trigger="datePickerModel" [initialBreakpoint]="0.2">
     <ng-template>
-        <ion-datetime presentation="month-year" min="2023-01-01T10:21:52.978-08:00"
-        max="2025-12-01T10:19:04.840-07:00" (ionChange)="monthPicker($event)"></ion-datetime>
+        <ion-datetime presentation="month-year" min="2023-01-01T10:21:52.978-08:00" [value]="currentYear + '-' + (currentMonth + 1)"
+        max="2025-12-01T10:19:04.840-07:00" (ionChange)="monthPicker($event,model)" ></ion-datetime>
     </ng-template>
   </ion-modal>

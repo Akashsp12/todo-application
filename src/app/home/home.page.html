@@ -7,9 +7,10 @@
 
       <button *ngIf="dateInString" (click)="hi(item)"
         [ngStyle]="{'color': item === dateInString ? 'red' : 'black', 'border-bottom': (item === dateInString ? '4px solid #E26255' : 'none')}">
-        <span>
+        <ion-label> 
           {{item.split(',')[1].split(' ')[2]}} <br> {{ (item.split(',')[0] | titlecase) | slice:0:3}}
-        </span>
+        <!-- </span> -->
+        </ion-label>
       </button>
 
 
@@ -17,5 +18,5 @@
     <button class="seeMore" (click)="getweekEnd('add')"><i-feather name="arrow-right-circle"
         class="big"></i-feather></button>
   </div>
-  <!-- {{item.split(' ')[3]}} -->
+  <app-card></app-card>
 </ion-content>

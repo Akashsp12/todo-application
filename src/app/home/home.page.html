@@ -1,22 +1,5 @@
 <ion-content [fullscreen]="true">
   <app-header></app-header>
-  <p>December 2023</p>
-  <div class="cal" #scrollContainer>
- 
-    <ul *ngFor="let item of finalresult.slice(cuurentDate-2)">
-
-      <button *ngIf="dateInString" (click)="hi(item)"
-        [ngStyle]="{'color': item === dateInString ? 'red' : 'black', 'border-bottom': (item === dateInString ? '4px solid #E26255' : 'none')}">
-        <ion-label> 
-          {{item.split(',')[1].split(' ')[2]}} <br> {{ (item.split(',')[0] | titlecase) | slice:0:3}}
-        <!-- </span> -->
-        </ion-label>
-      </button>
-
-
-    </ul>
-    <button class="seeMore" (click)="getweekEnd('add')"><i-feather name="arrow-right-circle"
-        class="big"></i-feather></button>
-  </div>
+  <app-datepicker></app-datepicker>
   <app-card></app-card>
 </ion-content>

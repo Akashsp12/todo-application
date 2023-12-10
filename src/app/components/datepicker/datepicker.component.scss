@@ -1,5 +1,72 @@
-.dd{
+.dateSelector{
+    position: relative;
+   
+}
+
+p {
+    width: 90%;
+    margin: 0% auto;
+    font-size: 18px;
+    color: #E26255;
+    font-weight: 800;
+    margin-top:-1.2rem ;
+    padding-left: 1rem;
+}
+.cal {
+    width: 90%;
+    height: 4rem;
+    margin: 1% auto;
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    border-bottom: 1px solid gray;
+    position: relative;
+}
+
+
+.cal::-webkit-scrollbar {
+    display: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0%;
+    height: 100%;
+
+    position: relative;
+
+    button {
+        width: 70px;
+        line-height: 25px;
+        background-color: transparent;
+        height: 100%;
+        font-size: 18px;
+
+        span {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: 60;
+        }
+    }
+
+
+
+    button:focus ion-label {
+        color: #E26255;
+    }
+
+}
+
+
+.seeMore {
     width: 100%;
-    height: 2rem;
-    background: red;
+    background-color: transparent;
+    color: #E26255;
+
+    .big {
+        height: 30px;
+        width: 30px;
+    }
 }

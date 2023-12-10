@@ -82,7 +82,7 @@ new: any;
     if (this.scrollContainerRef && this.scrollContainerRef.nativeElement) {
       this.scrollContainerRef.nativeElement.scrollTo({ left: 0, behavior: 'smooth' });
     }
-    modal.dismiss()
+    // modal.dismiss()
   }
 
 

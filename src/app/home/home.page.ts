@@ -4,7 +4,8 @@ import { HeaderComponent } from '../header/header.component';
 import { DatepickerComponent } from '../components/datepicker/datepicker.component';
 import { FeatherIconsModule } from '../feather-icons/feather-icons.module';
 import { CardComponent } from '../components/card/card.component';
-import { IonContent } from '@ionic/angular/standalone';
+import { IonContent, IonFab, IonFabButton, IonIcon } from '@ionic/angular/standalone';
+;
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ import { IonContent } from '@ionic/angular/standalone';
   styleUrls: ['home.page.scss'],
   standalone: true,
   
-  imports: [IonContent, HeaderComponent, DatepickerComponent, FeatherIconsModule,CardComponent],
+  imports: [IonContent, HeaderComponent, DatepickerComponent, FeatherIconsModule,CardComponent,IonFab,IonFabButton,IonIcon],
 })
 export class HomePage {
 

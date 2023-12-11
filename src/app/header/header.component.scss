@@ -24,7 +24,7 @@
         position: relative;
 
         .navlist {
-           
+
             width: 80%;
             display: flex;
             justify-content: flex-end;
@@ -33,19 +33,21 @@
         }
 
         .navitems {
-         justify-content: space-between;
+            justify-content: space-between;
 
         }
-        .navitems:nth-child(1){
+
+        .navitems:nth-child(1) {
             position: relative;
             padding-top: 10px;
-            .circle{
+
+            .circle {
                 position: absolute;
                 width: 30px;
                 top: 2px;
                 right: -8px;
                 height: 20px;
-                background-color:  #E26255;
+                background-color: #E26255;
             }
         }
     }
@@ -59,4 +61,91 @@
         width: 30px;
         height: 30px;
     }
+}
+
+ion-menu {
+    position: fixed;
+
+    ion-content {
+        --background: #E26255;
+        color: white;
+        position: relative;
+
+        img {
+            width: 70%;
+            display: block;
+            margin: 10% auto;
+            // border:1px solid white;
+        }
+
+        .item,
+        ion-note {
+            --background: #E26255;
+            color: white;
+            --border-color: #00000000;
+        }
+
+        ion-list {
+            --border-color: #00000000;
+        }
+
+        .bottomMenu {
+            height: 5rem;
+            border: 1px solid white;
+
+            ion-avatar {
+                width: 60px;
+                height: 40px;
+                border: 1px solid white;
+            }
+
+            ion-label {
+                height: 5rem;
+                margin-top: 10px;
+                border: 1px solid white;
+                p,h1{
+                    margin-top: 10px;
+                    border: 1px solid white;
+                    display: flex;
+                    align-items: center;
+                    color: white;
+                }
+            }
+        }
+    }
+
+    ion-segment {
+        margin: 0% auto;
+        width: 90%;
+        margin-top: 100%;
+        padding: 5px;
+        --background: rgb(255, 255, 255);
+        color: black;
+        --border-radius: 20px
+    }
+
+    ion-segment-button {
+        .item {
+            --background: transparent;
+            color: black
+        }
+    }
+
+    ion-segment-button::part(indicator-background) {
+        background: #E26255;
+    }
+
+    ion-segment-button.ios::part(native) {
+        color: #ffffff !important;
+
+    }
+
+    .segment-button-checked.ios::part(native) {
+        color: #ffffff;
+    }
+
+    //   ion-segment-button.ios::part(indicator-background) {
+    //     border-radius: 20px;
+    //     color: #E26255;
+    //   }
 }

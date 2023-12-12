@@ -1,6 +1,5 @@
-
 import { Component } from '@angular/core';
-import { HeaderComponent } from '../header/header.component';
+import { HeaderComponent } from '../components/header/header.component';
 import { DatepickerComponent } from '../components/datepicker/datepicker.component';
 import { FeatherIconsModule } from '../feather-icons/feather-icons.module';
 import { CardComponent } from '../components/card/card.component';

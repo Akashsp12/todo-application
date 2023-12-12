@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FeatherIconsModule } from '../../feather-icons/feather-icons.module';
 import { IonButton, IonButtons, IonBadge, IonContent, IonHeader, IonMenu, IonMenuButton, IonMenuToggle, IonTitle, IonToolbar, IonItem, IonIcon, IonLabel, IonNote, IonList, IonSegment, IonSegmentButton, IonAvatar } from '@ionic/angular/standalone';
 
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 
 @Component({
@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
   standalone: true,
-  imports: [FeatherIconsModule, IonMenuButton, IonButton, IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBadge, IonItem, IonIcon, IonLabel, IonNote, IonList, IonSegment, IonSegmentButton, IonAvatar]
+  imports: [FeatherIconsModule, IonMenuButton, IonButton, IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBadge, IonItem, IonIcon, IonLabel, IonNote, IonList, IonSegment, IonSegmentButton, IonAvatar,RouterLink,IonMenuToggle]
 
 })
 

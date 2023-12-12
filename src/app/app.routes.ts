@@ -14,6 +14,10 @@ export const routes: Routes = [
     path: 'addtask',
     loadComponent: () => import('./pages/add-task/add-task.component').then((m) => m.AddTaskComponent),
   },
+  {
+    path: 'focus-mode',
+    loadComponent: () => import('./pages/focus-mode/focus-mode.component').then((m) => m.FocusModeComponent),
+  },
 
 ];
 

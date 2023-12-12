@@ -26,15 +26,18 @@
   <ion-content class="ion-padding" class="sidemenuArea">
 
     <img src="../../assets/icon/image.png" alt="" class="logo">
-
-    <ion-item class="item" [button]="true">
+    <ion-menu-toggle>
+    <ion-item [button]="true" [routerLink]="['/home']" routerLinkActive="router-link-active" class="item" [button]="true">
       <i-feather name="Home" class="big"></i-feather> &nbsp; &nbsp;
       <ion-label>Home</ion-label>
     </ion-item>
-    <ion-item class="item" [button]="true">
+  </ion-menu-toggle>
+    <ion-menu-toggle>
+    <ion-item class="item" [button]="true" [routerLink]="['/focus-mode']" routerLinkActive="router-link-active" >
       <i-feather name="Crosshair" class="big"></i-feather>&nbsp; &nbsp;
       <ion-label>Focus Mode</ion-label>
     </ion-item>
+  </ion-menu-toggle>
     <ion-item class="item" [button]="true">
       <i-feather name="Activity" class="big"></i-feather>&nbsp; &nbsp;
       <ion-label>Task Manager</ion-label>

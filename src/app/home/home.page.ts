@@ -5,6 +5,7 @@ import { DatepickerComponent } from '../components/datepicker/datepicker.compone
 import { FeatherIconsModule } from '../feather-icons/feather-icons.module';
 import { CardComponent } from '../components/card/card.component';
 import { IonContent, IonFab, IonFabButton, IonIcon } from '@ionic/angular/standalone';
+import { RouterLink } from '@angular/router';
 ;
 
 @Component({
@@ -13,7 +14,7 @@ import { IonContent, IonFab, IonFabButton, IonIcon } from '@ionic/angular/standa
   styleUrls: ['home.page.scss'],
   standalone: true,
   
-  imports: [IonContent, HeaderComponent, DatepickerComponent, FeatherIconsModule,CardComponent,IonFab,IonFabButton,IonIcon],
+  imports: [IonContent, HeaderComponent, DatepickerComponent, FeatherIconsModule,CardComponent,IonFab,IonFabButton,IonIcon,RouterLink],
 })
 export class HomePage {
 

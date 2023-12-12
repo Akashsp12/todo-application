@@ -1,0 +1,47 @@
+ion-input {
+    height: 4rem;
+
+    margin-top: 1rem;
+    --padding-left: 20px;
+    border-radius: 0.2rem;
+}
+
+
+ion-item {
+    --padding: 12px;
+    --border-color: #00000000;
+    // --background: red;
+    // --padding: 5rem ;
+    // --border: 1px solid rgb(54, 54, 54);
+}
+
+.accordion {
+    ion-accordion-group {
+        width: 100%;
+
+        margin-top: 1rem;
+        border: 1px solid rgba(128, 128, 128, 0.671);
+    }
+}
+
+ion-select {
+    margin-top: 1rem;
+}
+
+ion-textarea {
+    --outline:none;
+    margin-top: 1rem;
+   
+}
+
+ion-datetime {
+
+    margin: 0% auto;
+    border: 1px solid rgba(128, 128, 128, 0.671);
+}
+ion-button{
+    width: 60%;
+    height: 3rem;
+    margin: 10% auto;
+    --border-radius: 15px;
+}

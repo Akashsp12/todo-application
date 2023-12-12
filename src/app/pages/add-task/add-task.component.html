@@ -1,0 +1,113 @@
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <br>
+      &nbsp;
+      <ion-label></ion-label>
+      <ion-input label="Task Title" labelPlacement="floating" fill="outline" placeholder="Enter text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-select label="Category" fill="outline" label-placement="floating">
+        <ion-select-option value="apple">Apple</ion-select-option>
+        <ion-select-option value="banana">Banana</ion-select-option>
+        <ion-select-option value="orange">Orange</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+
+      <ion-select label="Priority" fill="outline" label-placement="floating">
+        <ion-select-option value="apple">Apple</ion-select-option>
+        <ion-select-option value="banana">Banana</ion-select-option>
+        <ion-select-option value="orange">Orange</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item class="accordion">
+      <ion-accordion-group>
+        <ion-accordion value="first">
+          <ion-item slot="header">
+            <ion-label>Date & Time</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <ion-datetime #datetime>
+              <ion-buttons slot="buttons">
+                <ion-button color="danger" (click)="datetime.reset()">Reset</ion-button>
+                <ion-button color="primary" (click)="datetime.confirm()">All Set</ion-button>
+              </ion-buttons>
+            </ion-datetime>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+    </ion-item>
+
+
+
+    <ion-item>
+      <ion-label></ion-label>
+      <ion-textarea label="Floating label" labelPlacement="floating" fill="outline" [autoGrow]="true"
+        labelPlacement="floating" placeholder="Enter text" rows="8"> </ion-textarea>
+    </ion-item>
+    <ion-button expand="block">Save</ion-button>
+  </ion-list>
+</ion-content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <ion-radio-group value="Low">
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-radio value="High" fill="outline" justify="space-between">High</ion-radio>
+          </ion-col>
+          <ion-col>
+            <ion-radio value="Moderate" justify="space-between">Moderate</ion-radio>
+          </ion-col>
+          <ion-col>
+            <ion-radio value="Low" justify="space-between">Low</ion-radio>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-input label="Date"  fill="outline" >
+            <ion-button fill="clear" slot="end" >
+              <i-feather name="calendar" ></i-feather>
+            </ion-button>
+          </ion-input>
+        </ion-col>
+        <ion-col>
+          <ion-input label="Time"    fill="outline" >
+            <ion-button fill="clear" slot="end" aria-label="Show/hide">
+              <i-feather name="clock" ></i-feather>
+            </ion-button>
+          </ion-input>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+  </ion-radio-group> -->

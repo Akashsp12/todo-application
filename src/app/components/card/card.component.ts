@@ -12,7 +12,7 @@ import { CardinfoComponent } from './cardinfo/cardinfo.component';
   imports:[IonLabel,IonList,NgFor,IonItem,IonItemDivider,IonItemGroup,CardinfoComponent]
 })
 export class CardComponent  implements OnInit {
-
+a=[1,2]
   constructor() { }
 
   ngOnInit() {}

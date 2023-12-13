@@ -1,31 +1,15 @@
-<ion-item-sliding *ngFor="let item of a" >
-  <ion-item-options side="start" class="ion-no-padding">
-    <!-- <ion-item-option color="success" >Archive</ion-item-option> -->
-  </ion-item-options>
-  <ion-item class="ion-no-padding"  >
-  
-    <ion-card>
-      <ion-card-header>
-        <ion-card-subtitle>Hobby</ion-card-subtitle>
-        <ion-card-title>Meeting With Client</ion-card-title>
-        <i-feather name="star"></i-feather>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-label>
-          Redesign motion graphic and call to client. Also ask him to give more info. about project.
-        </ion-label>
-        <hr style="background-color: white;">
-        <ion-item class="ion-no-border ion-no-padding">
-          <ion-label>24th April <br> 10:05 am</ion-label>
-          <ion-label class="end" slot="end">Completed</ion-label>
-        </ion-item>
-      </ion-card-content>
-    </ion-card>
-  </ion-item>
-  <ion-item-options side="end">
-    <!-- <ion-item-option color="danger" >Delete</ion-item-option> -->
-    <ion-item-option color="success" >Completed</ion-item-option>
-  </ion-item-options>
-</ion-item-sliding>
+<ion-list>
+  <ion-item-group>
+    <ion-item-divider>
+      <ion-label> On Progress </ion-label>
+    </ion-item-divider>
+    <app-cardinfo></app-cardinfo>
+  </ion-item-group>
+  <ion-item-group>
+    <ion-item-divider>
+      <ion-label>Completed </ion-label>
+    </ion-item-divider>
+    <app-cardinfo></app-cardinfo>
+  </ion-item-group>
 
-
+</ion-list>

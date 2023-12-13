@@ -1,0 +1,38 @@
+ion-card {
+    width: 100%;
+    color: white;
+    background-color: #E26255;
+    position: relative;
+    border-radius: 14px;
+
+}
+
+ion-card-header {
+    position: relative;
+
+    ion-card-title,
+    ion-card-subtitle {
+        color: #ffff
+    }
+
+    i-feather {
+        position: absolute;
+        right: 0.8rem;
+        stroke: none;
+        fill: rgb(255, 255, 255)
+    }
+}
+
+ion-card-content {
+    ion-item {
+        --background: transparent;
+        --border: none;
+        color: white;
+        --border-color: #00000000;
+        --border-top:2px solid white;
+    }
+    .end{
+        text-align: end;
+    }
+    
+}

@@ -1,6 +1,10 @@
 <ion-content>
   <h1> {{timing}}</h1>
- 
+  <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <circle cx="100" cy="100" r="80" fill="none" stroke="#e6e6e6" stroke-width="12" />
+    <circle cx="100" #myCircle cy="100" r="80" fill="none" stroke="#f77a52" stroke-width="12"   
+       />
+  </svg>
   <ion-picker trigger="open-picker" mode="ios" [columns]="yourPickerOptions.columns"
     [buttons]="yourPickerOptions.buttons"></ion-picker>
   <div class="btn">
@@ -9,6 +13,8 @@
     <ion-button (click)="stopTime()">stop</ion-button>
   </div>
 
-
+  <div>
+    <canvas id="canvas" height="100vh" width="100%" (click)="chartClick($event)">{{chart}}</canvas>
+  </div>
 
 </ion-content>

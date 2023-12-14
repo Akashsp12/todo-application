@@ -1,28 +1,14 @@
 <ion-content>
   <h1> {{timing}}</h1>
-  <!-- <div class="timer-container">
-    <div class="semicircle"></div>
-    <div class="semicircle"></div>
-    <div class="semicircle"></div>
-    <div class="outercircle"></div>
-  </div> -->
-  <!-- <svg width="400" height="400">
-    <circle cx="200" id="myCircle" cy="200" r="150" stroke="red"  stroke-width="10"></circle>
-    <circle cx="200" cy="200" r="145"  fill="green"></circle>
-    <text>{{remainingTime}}</text>
-  </svg>
-   -->
-  <ion-datetime-button datetime="datetime"></ion-datetime-button>
-
-  <ion-modal [keepContentsMounted]="true">
-    <ng-template>
-      <ion-datetime #date id="datetime" presentation="time" (ionChange)="getSetTimer($event)" ></ion-datetime>
-    <ion-button (click)="click()">hi</ion-button>
-    </ng-template>
-  </ion-modal>
+  
+  <ion-picker trigger="open-picker" mode="ios" [columns]="yourPickerOptions.columns"
+    [buttons]="yourPickerOptions.buttons"></ion-picker>
   <div class="btn">
+    <ion-button id="open-picker">Open</ion-button>
     <ion-button (click)="startTime()">Start</ion-button>
-    <ion-button>stop</ion-button>
-  </div>
+    <ion-button (click)="stopTime()">stop</ion-button>
+  </div> 
+
+ 
 
 </ion-content>

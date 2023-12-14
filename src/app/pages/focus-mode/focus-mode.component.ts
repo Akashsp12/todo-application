@@ -148,12 +148,13 @@ export class FocusModeComponent implements OnInit, AfterViewInit {
 
         this.timing = `${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`
         console.log(distance)
-        this.dasharray = `${((distance * 502) / 100) / 100} 502`
+        this.dasharray = `${((distance * 502)/1000)/1000 }  502`;
+
 
         //  this.dasharray = `${((this.distance * 502) / 100) / 100} 502`;
 
         // Accessing the circle element and setting the stroke dash array
-        this.myCircle.nativeElement.setAttribute('stroke-dasharray', this.dasharray);
+        // this.myCircle.nativeElement.setAttribute('stroke-dasharray', this.dasharray);
 
 
       }

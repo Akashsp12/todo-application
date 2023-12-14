@@ -15,7 +15,7 @@ export class FocusModeComponent implements OnInit {
   currentTime: any;
   yourPickerOptions!: any;
   intervalId: any;
-  currentDate: any;
+  distance: any;
   timingInterval: any;
 
 
@@ -86,9 +86,9 @@ export class FocusModeComponent implements OnInit {
       let now = new Date().getTime();
       var distance = countdownTimer - now
       console.log(distance)
-
+      this.distance = distance, 283
       if (distance <= 0) {
-        distance = 0;
+     
         clearInterval(this.timingInterval);
 
       } else {
@@ -99,6 +99,12 @@ export class FocusModeComponent implements OnInit {
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         this.timing = `${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`
+
+       
+
+
+     
+
       }
     }, 0)
 

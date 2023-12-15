@@ -21,6 +21,7 @@ export class FocusModeComponent implements OnInit, AfterViewInit {
   chart: any = [];
   dasharray: any;
   @ViewChild('myCircle') myCircle!: ElementRef<SVGCircleElement>;
+  totalDuration: any;
 
 
   ngAfterViewInit() {
@@ -125,6 +126,7 @@ export class FocusModeComponent implements OnInit, AfterViewInit {
     const hoursInMilliseconds = hours * millisecondsInHour;
     const minutesInMilliseconds = minutes * millisecondsInMinute;
     const secondsInMilliseconds = seconds * 1000;
+    this.totalDuration=hoursInMilliseconds + minutesInMilliseconds + secondsInMilliseconds
     const newDate = new Date(date.getTime() + hoursInMilliseconds + minutesInMilliseconds + secondsInMilliseconds);
     return newDate;
   }
@@ -133,7 +135,7 @@ export class FocusModeComponent implements OnInit, AfterViewInit {
     this.timingInterval = setInterval(() => {
       let now = new Date().getTime();
       var distance = countdownTimer - now
-
+     let percentageDistance=(distance/this.totalDuration)*100
 
       if (distance <= 0) {
 
@@ -148,13 +150,13 @@ export class FocusModeComponent implements OnInit, AfterViewInit {
 
         this.timing = `${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`
         console.log(distance)
-        this.dasharray = `${((distance * 502)/1000)/1000 }  502`;
+        this.dasharray = `${(502 * percentageDistance)/100}  502`;
 
-
+        // console.log(this.dasharray)
         //  this.dasharray = `${((this.distance * 502) / 100) / 100} 502`;
 
         // Accessing the circle element and setting the stroke dash array
-        // this.myCircle.nativeElement.setAttribute('stroke-dasharray', this.dasharray);
+        this.myCircle.nativeElement.setAttribute('stroke-dasharray', this.dasharray);
 
 
       }

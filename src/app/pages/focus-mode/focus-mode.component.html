@@ -7,7 +7,7 @@
       transform="rotate(-90 100 100)" />
     <text class="timingtext" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">{{timing}}</text>
     <!-- <rect x="120" y="220" id="open-picker" width="100" height="20" fill="#f77a52" rx="5" ry="5" /> -->
-    <text x="170" y="235" id="open-picker" text-anchor="middle" fill=" #E26255">Set Timer</text>
+    <text x="170" y="235" id="open-picker" text-anchor="middle" fill="#E26255">Set Timer</text>
   </svg>
   <p>While your focus mode is on, all of your notifications will be off</p>
 
@@ -18,9 +18,7 @@
     <ion-button (click)="startTime()">Start Focusing </ion-button>
     <!-- <ion-button (click)="stopTime()">stop</ion-button> -->
   </div>
-
-  <div>
-    <canvas id="canvas" height="100vh" width="100%" (click)="chartClick($event)">{{chart}}</canvas>
-  </div>
+  <app-focus-chart></app-focus-chart>
+ 
 
 </ion-content>

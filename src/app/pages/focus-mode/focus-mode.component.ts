@@ -1,14 +1,16 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { IonButton, IonContent, IonDatetime, IonDatetimeButton, IonModal, IonPicker } from '@ionic/angular/standalone';
-import { Chart, registerables } from 'chart.js';
-Chart.register(...registerables);
+
+import { FocusChartComponent } from './focus-chart/focus-chart.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-focus-mode',
   templateUrl: './focus-mode.component.html',
   styleUrls: ['./focus-mode.component.scss'],
   standalone: true,
-  imports: [IonContent, IonButton, IonDatetime, IonModal, IonDatetimeButton, IonPicker]
+  imports: [IonContent, IonButton, IonDatetime, IonModal, IonDatetimeButton, IonPicker,FocusChartComponent,HttpClientModule]
 })
 export class FocusModeComponent implements OnInit, AfterViewInit {
 
@@ -18,10 +20,11 @@ export class FocusModeComponent implements OnInit, AfterViewInit {
   intervalId: any;
   distance: any;
   timingInterval: any;
-  chart: any = [];
+
   dasharray: any;
   @ViewChild('myCircle') myCircle!: ElementRef<SVGCircleElement>;
   totalDuration: any;
+  started: boolean=false;
 
 
   ngAfterViewInit() {
@@ -32,46 +35,10 @@ export class FocusModeComponent implements OnInit, AfterViewInit {
   }
   ngOnInit() {
     this.getFun()
-    this.chart = new Chart('canvas', {
-      type: 'bar',
-      data: {
-        labels: ['Monday'],
-        datasets: [{
-          label: 'Weekly Focus Time',
-          data: [6, 19, 3, 5, 2, 3],
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
 
-        }
-      }
-    });
 
   }
-  chartClick(ev: any) {
-    var firstPoint = this.chart.getElementsAtEventMode(onclick, 'nearest', {
-      intersect: true
-    }, true)
-    console.log(firstPoint)
-  }
+
   getFun() {
     const hoursArray = Array.from({ length: 24 }, (_, index) => index);
     const minutesArray = Array.from({ length: 60 }, (_, index) => index);
@@ -109,6 +76,7 @@ export class FocusModeComponent implements OnInit, AfterViewInit {
 
 
   startTime() {
+    this.started=true
     let timer = this.timing
     let splitTimer = timer.split(':')
     this.currentTime = new Date();
@@ -150,7 +118,7 @@ export class FocusModeComponent implements OnInit, AfterViewInit {
 
         this.timing = `${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`
     
-        this.dasharray = `${(942 * percentageDistance)/100}  942`;
+        this.dasharray = `${(943 * percentageDistance)/100}  943`;
         this.myCircle.nativeElement.setAttribute('stroke-dasharray', this.dasharray);
 
 

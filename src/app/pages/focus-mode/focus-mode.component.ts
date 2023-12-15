@@ -149,8 +149,8 @@ export class FocusModeComponent implements OnInit, AfterViewInit {
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         this.timing = `${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`
-        console.log(distance)
-        this.dasharray = `${(502 * percentageDistance)/100}  502`;
+    
+        this.dasharray = `${(942 * percentageDistance)/100}  942`;
         this.myCircle.nativeElement.setAttribute('stroke-dasharray', this.dasharray);
 
 

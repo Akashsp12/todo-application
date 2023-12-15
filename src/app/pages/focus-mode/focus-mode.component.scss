@@ -1,16 +1,28 @@
-
-
-h1{
+h1 {
     text-align: center;
     font-size: 3rem;
     font-weight: 35rem;
 
 }
-.btn{
-    width: 50%;
+
+
+
+
+ion-button {
+    width: 60%;
+    margin: 4% auto;
+    display: block;
+    --border-radius: 2rem;
+}
+
+
+.timingtext {
+    font-size: 3rem;
+}
+
+p {
+    width: 80%;
+    text-align: center;
     margin: 0% auto;
-    display: flex;
-    ion-button{
-        width: 50%;
-    }
+    font-size: 1.2rem;
 }

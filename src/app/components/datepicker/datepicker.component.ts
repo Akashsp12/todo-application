@@ -51,8 +51,6 @@ new: any;
     this.currentDate = date.getDate()
     this.currentMonth = date.getMonth()
     this.currentYear = date.getFullYear()
-    console.log(this.currentMonth)
-    console.log(this.currentYear)
     let currentDates = new Date(this.currentYear, this.currentMonth, this.currentDate)
     this.dateInString = this.getDateLong(currentDates)
     this.monthYear = this.getMonthYearLong(this.dateInString)

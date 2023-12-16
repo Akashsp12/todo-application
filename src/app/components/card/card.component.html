@@ -1,15 +1,17 @@
-<ion-list>
-  <ion-item-group>
-    <ion-item-divider>
-      <ion-label> On Progress </ion-label>
-    </ion-item-divider>
-    <app-cardinfo></app-cardinfo>
-  </ion-item-group>
-  <ion-item-group>
-    <ion-item-divider>
-      <ion-label>Completed </ion-label>
-    </ion-item-divider>
-    <app-cardinfo *ngFor="let item of a"></app-cardinfo>
-  </ion-item-group>
-
-</ion-list>
+<ion-content>
+  <app-datepicker></app-datepicker>
+  <ion-list>
+    <ion-item-group>
+      <ion-item-divider>
+        <ion-label> On Progress </ion-label>
+      </ion-item-divider>
+      <app-cardinfo [taskconfig]="config"></app-cardinfo>
+    </ion-item-group>
+    <ion-item-group>
+      <ion-item-divider>
+        <ion-label>Completed </ion-label>
+      </ion-item-divider>
+      <app-cardinfo  [taskconfig]="config"></app-cardinfo>
+    </ion-item-group>
+  </ion-list>
+</ion-content>

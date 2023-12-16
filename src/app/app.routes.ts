@@ -18,6 +18,16 @@ export const routes: Routes = [
     path: 'focus-mode',
     loadComponent: () => import('./pages/focus-mode/focus-mode.component').then((m) => m.FocusModeComponent),
   },
+  {
+    path: 'task',
+    loadComponent: () => import('./pages/taskmanager/taskmanager.component').then((m) => m.TaskmanagerComponent),
+    children: [
+      {
+        path: 'mananger/:task',
+        loadComponent: () => import('./components/card/card.component').then((m) => m.CardComponent),
+      }
+    ]
+  },
 
 ];
 

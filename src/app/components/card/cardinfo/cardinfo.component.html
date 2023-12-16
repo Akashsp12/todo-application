@@ -1,8 +1,10 @@
-
-<ion-item-sliding >
-  <ion-item-options side="start" class="ion-no-padding">
-    <!-- <ion-item-option color="success" >Archive</ion-item-option> -->
-  </ion-item-options>
+<ion-item-sliding>
+  <div *ngIf="taskconfig === 'config'">
+    <!-- Content to display when taskconfig is 'home' -->
+    <ion-item-options side="start">
+      <ion-item-option color="danger">Delete</ion-item-option>
+    </ion-item-options>
+  </div>
   <ion-item class="ion-no-padding">
     <ion-card>
       <ion-card-header>
@@ -22,8 +24,17 @@
       </ion-card-content>
     </ion-card>
   </ion-item>
-  <ion-item-options side="end">
-    <!-- <ion-item-option color="danger" >Delete</ion-item-option> -->
-    <ion-item-option color="success">Completed</ion-item-option>
-  </ion-item-options>
+  <div *ngIf="taskconfig === 'config'">
+    <!-- Content to display when taskconfig is 'config' -->
+    <ion-item-options side="end">
+      <ion-item-option color="success">Edit Todo</ion-item-option>
+    </ion-item-options>
+  </div>
+  <div *ngIf="taskconfig === 'home'">
+    <!-- Content to display when taskconfig is 'home' -->
+    <ion-item-options side="end">
+      <ion-item-option color="success">Completed</ion-item-option>
+    </ion-item-options>
+  </div>
+
 </ion-item-sliding>

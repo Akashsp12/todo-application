@@ -20,9 +20,7 @@ export class CardComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe((res) => {
-
       this.config = res['task'] == 'config' ? "config" : "home"
-      console.log(this.config)
     })
 
 

@@ -25,6 +25,14 @@ export const routes: Routes = [
       {
         path: 'mananger/:task',
         loadComponent: () => import('./components/card/card.component').then((m) => m.CardComponent),
+      },
+      {
+        path: 'stats',
+        loadComponent: () => import('./pages/taskmanager/components/stats/stats.component').then((m) => m.StatsComponent)
+      },
+      {
+        path: 'focus-stats',
+        loadComponent: () => import('./pages/taskmanager/components/focus-stats/focus-stats.component').then((m) => m.FocusStatsComponent)
       }
     ]
   },

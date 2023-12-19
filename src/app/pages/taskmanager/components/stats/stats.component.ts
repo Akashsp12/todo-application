@@ -2,13 +2,14 @@ import { NgFor } from '@angular/common';
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { IonButton, IonCard, IonCardContent, IonContent, IonIcon, IonInput, IonItem, IonLabel, IonList } from '@ionic/angular/standalone';
 import { FeatherIconsModule } from 'src/app/feather-icons/feather-icons.module';
+import { StatsinfoComponent } from './statsinfo/statsinfo.component';
 
 @Component({
   selector: 'app-stats',
   templateUrl: './stats.component.html',
   styleUrls: ['./stats.component.scss'],
   standalone: true,
-  imports: [IonContent, IonList, NgFor, IonItem, IonIcon, IonButton, IonInput, FeatherIconsModule, IonLabel, IonCard, IonCardContent]
+  imports: [IonContent, IonList, NgFor, IonItem, IonIcon, IonButton, IonInput, FeatherIconsModule, IonLabel, IonCard, IonCardContent,StatsinfoComponent]
 })
 export class StatsComponent implements OnInit {
   @ViewChild('card') cardElement: ElementRef | undefined

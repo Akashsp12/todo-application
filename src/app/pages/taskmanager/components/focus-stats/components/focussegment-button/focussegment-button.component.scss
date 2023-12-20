@@ -1,0 +1,25 @@
+ion-segment {
+    width: 55%;
+    padding: 0.5rem;
+    --background: #9c9c9c95;
+    height: 2.5rem;
+    margin: 5% auto;
+    color: black;
+}
+
+ion-segment-button::part(indicator-background) {
+    background: #E26255;
+}
+
+
+
+ion-segment-button {
+  
+    margin-top: -2px;
+    --color: white;
+    --color-checked: #ffffff;
+    --border-radius: 10px;
+    ion-label{
+        font-size: 1rem;
+    }
+}

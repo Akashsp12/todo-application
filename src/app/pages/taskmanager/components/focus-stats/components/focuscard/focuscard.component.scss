@@ -1,0 +1,30 @@
+ion-card {
+    width: 185px;
+   
+    --background: #E26255;
+    --color: white;
+    border-radius: 1.1rem;
+
+    ion-item {
+
+        --background: transparent;
+
+        i-feather {
+            color: white;
+        }
+
+        ion-label {
+            color: white;
+        }
+    }
+
+    ion-card-content {
+        text-align: center;
+        letter-spacing: 0.2rem;
+        margin-top: -10px;
+
+        span {
+            font-size: 2.5rem;
+        }
+    }
+}

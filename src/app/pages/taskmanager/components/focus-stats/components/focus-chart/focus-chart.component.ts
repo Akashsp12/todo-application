@@ -15,15 +15,15 @@ Chart.register(...registerables);
 export class FocusChartComponent implements OnInit {
   chart: any = [];
   @ViewChild('canvas') myCircle!: ElementRef<SVGCircleElement>;
-  data: any = [7, 5, 3];
+  data: any = [7, 5, 3, 5, 2, 7];
   color: any = ["red", "blue", "green"];
-  label: any = ['Monday', 'tuesday', 'wdnesday'];
+  label: any = ['Monday', 'tuesday', 'wdnesday', 'rusday', 'friday', 'saturaday', 'sunday'];
   constructor(private json: JsonserviceService) { }
 
   async ngOnInit() {
 
     this.chart = new Chart('canvas', {
-      type: 'polarArea',
+      type: 'line',
       data: {
         labels: this.label,
         datasets: [{
@@ -43,7 +43,13 @@ export class FocusChartComponent implements OnInit {
       },
       options: {
 
-
+        responsive: true,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Chart.js Line Chart - Cubic interpolation mode'
+          },
+        },
         layout: {
           padding: {
             left: 0,
@@ -68,8 +74,11 @@ export class FocusChartComponent implements OnInit {
             // this.chart.update(); // Update the chart to reflect the color change
           }
         }
+        ,
 
-      }
+
+      },
+
     });
 
   }

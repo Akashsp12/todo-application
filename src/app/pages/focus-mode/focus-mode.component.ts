@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { IonButton, IonContent, IonDatetime, IonDatetimeButton, IonModal, IonPicker } from '@ionic/angular/standalone';
 
-import { FocusChartComponent } from './focus-chart/focus-chart.component';
+import { FocusChartComponent } from '../taskmanager/components/focus-stats/components/focus-chart/focus-chart.component';
 import { HttpClientModule } from '@angular/common/http';
 
 

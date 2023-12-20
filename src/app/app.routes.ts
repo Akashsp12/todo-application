@@ -18,6 +18,11 @@ export const routes: Routes = [
     path: 'focus-mode',
     loadComponent: () => import('./pages/focus-mode/focus-mode.component').then((m) => m.FocusModeComponent),
   },
+
+  {
+    path: 'notification',
+    loadComponent: () => import('./pages/notifications/notifications.component').then((m) => m.NotificationsComponent),
+  },
   {
     path: 'task',
     loadComponent: () => import('./pages/taskmanager/taskmanager.component').then((m) => m.TaskmanagerComponent),

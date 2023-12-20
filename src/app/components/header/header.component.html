@@ -7,7 +7,7 @@
       <div class="navsection">
         <div class="navlist">
           <div class="navitems">
-            <i-feather name="bell" class="big"></i-feather>
+            <i-feather name="bell" class="big" [routerLink]="['notification']"></i-feather>
             <!-- <div class="circle">2</div> -->
             <ion-badge class="circle">22k</ion-badge>
           </div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -50,7 +50,7 @@
       <ion-label>Category</ion-label>
     </ion-item> -->
     <ion-menu-toggle>
-      <ion-item class="item" [button]="true"  [routerLink]="['notification']">
+      <ion-item class="item" [button]="true" [routerLink]="['notification']">
         <i-feather name="Bell" class="big"></i-feather>&nbsp; &nbsp;
         <ion-label>Notifications</ion-label>
         <ion-note slot="end">55</ion-note>

@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { IonButton, IonContent, IonDatetime, IonDatetimeButton, IonModal, IonPicker } from '@ionic/angular/standalone';
+import { IonButton, IonContent, IonDatetime, IonDatetimeButton, IonLabel, IonModal, IonPicker } from '@ionic/angular/standalone';
 
 import { FocusChartComponent } from '../taskmanager/components/focus-stats/components/focus-chart/focus-chart.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
   templateUrl: './focus-mode.component.html',
   styleUrls: ['./focus-mode.component.scss'],
   standalone: true,
-  imports: [IonContent, IonButton, IonDatetime, IonModal, IonDatetimeButton, IonPicker,FocusChartComponent,HttpClientModule]
+  imports: [IonContent, IonLabel, IonButton, IonDatetime, IonModal, IonDatetimeButton, IonPicker, FocusChartComponent, HttpClientModule]
 })
 export class FocusModeComponent implements OnInit, AfterViewInit {
 
@@ -24,7 +24,7 @@ export class FocusModeComponent implements OnInit, AfterViewInit {
   dasharray: any;
   @ViewChild('myCircle') myCircle!: ElementRef<SVGCircleElement>;
   totalDuration: any;
-  started: boolean=false;
+  started: boolean = false;
 
 
   ngAfterViewInit() {
@@ -57,15 +57,15 @@ export class FocusModeComponent implements OnInit, AfterViewInit {
       columns: [
         {
           name: 'hours',
-          options: hoursArray.map(h => ({ text: h.toString().padStart(2, '0')}))
+          options: hoursArray.map(h => ({ text: h.toString().padStart(2, '0') }))
         },
         {
           name: 'minutes',
-          options: minutesArray.map(m => ({ text: m.toString().padStart(2, '0')}))
+          options: minutesArray.map(m => ({ text: m.toString().padStart(2, '0') }))
         },
         {
           name: 'seconds',
-          options: secondsArray.map(s => ({ text: s.toString().padStart(2, '0')}))
+          options: secondsArray.map(s => ({ text: s.toString().padStart(2, '0') }))
         }
       ]
     };
@@ -76,7 +76,7 @@ export class FocusModeComponent implements OnInit, AfterViewInit {
 
 
   startTime() {
-    this.started=true
+    this.started = true
     let timer = this.timing
     let splitTimer = timer.split(':')
     this.currentTime = new Date();
@@ -94,7 +94,7 @@ export class FocusModeComponent implements OnInit, AfterViewInit {
     const hoursInMilliseconds = hours * millisecondsInHour;
     const minutesInMilliseconds = minutes * millisecondsInMinute;
     const secondsInMilliseconds = seconds * 1000;
-    this.totalDuration=hoursInMilliseconds + minutesInMilliseconds + secondsInMilliseconds
+    this.totalDuration = hoursInMilliseconds + minutesInMilliseconds + secondsInMilliseconds
     const newDate = new Date(date.getTime() + hoursInMilliseconds + minutesInMilliseconds + secondsInMilliseconds);
     return newDate;
   }
@@ -103,7 +103,7 @@ export class FocusModeComponent implements OnInit, AfterViewInit {
     this.timingInterval = setInterval(() => {
       let now = new Date().getTime();
       var distance = countdownTimer - now
-     let percentageDistance=(distance/this.totalDuration)*100
+      let percentageDistance = (distance / this.totalDuration) * 100
 
       if (distance <= 0) {
 
@@ -117,8 +117,8 @@ export class FocusModeComponent implements OnInit, AfterViewInit {
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         this.timing = `${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`
-    
-        this.dasharray = `${(943 * percentageDistance)/100}  943`;
+
+        this.dasharray = `${(943 * percentageDistance) / 100}  943`;
         this.myCircle.nativeElement.setAttribute('stroke-dasharray', this.dasharray);
 
 

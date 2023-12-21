@@ -115,14 +115,14 @@ ion-menu {
         }
     }
 
-    ion-segment {
+    ion-segment { 
         margin: 0% auto;
         width: 90%;
-        margin-top: 100%;
         padding: 5px;
         --background: rgb(255, 255, 255);
         color: black;
-        --border-radius: 20px
+        --border-radius: 20px;
+        margin-top: 80%;
     }
 
     ion-segment-button {

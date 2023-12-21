@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FeatherModule } from 'angular-feather';
-import { Bell, Camera, ArrowRightCircle, Star, PlusSquare, Home, Crosshair, Activity, List, Settings, Moon, Sun, Calendar, Clock, PlusCircle, Users } from 'angular-feather/icons';
+import { Bell, Camera, ArrowRightCircle, Star, PlusSquare, Home, Crosshair, Activity, List, Settings, Moon, Sun, Calendar, Clock, PlusCircle, Users, ThumbsUp, HelpCircle, Info } from 'angular-feather/icons';
 
 const icons = {
   Camera,
@@ -18,7 +18,10 @@ const icons = {
   Sun,
   Calendar,
   Clock,
-  Users
+  Users,
+  ThumbsUp,
+  HelpCircle,
+  Info
 };
 
 @NgModule({

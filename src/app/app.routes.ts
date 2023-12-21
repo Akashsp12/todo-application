@@ -24,6 +24,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/notifications/notifications.component').then((m) => m.NotificationsComponent),
   },
   {
+    path: 'setting',
+    loadComponent: () => import('./pages/setting/setting.component').then((m) => m.SettingComponent),
+  },
+  {
     path: 'task',
     loadComponent: () => import('./pages/taskmanager/taskmanager.component').then((m) => m.TaskmanagerComponent),
     children: [

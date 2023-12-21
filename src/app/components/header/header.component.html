@@ -45,10 +45,7 @@
         <ion-label>Task Manager</ion-label>
       </ion-item>
     </ion-menu-toggle>
-    <!-- <ion-item class="item" [button]="true">
-      <i-feather name="List" class="big"></i-feather>&nbsp; &nbsp;
-      <ion-label>Category</ion-label>
-    </ion-item> -->
+
     <ion-menu-toggle>
       <ion-item class="item" [button]="true" [routerLink]="['notification']">
         <i-feather name="Bell" class="big"></i-feather>&nbsp; &nbsp;
@@ -56,10 +53,14 @@
         <ion-note slot="end">55</ion-note>
       </ion-item>
     </ion-menu-toggle>
-    <ion-item class="item" [button]="true">
-      <i-feather name="Settings" class="big"></i-feather>&nbsp; &nbsp;
-      <ion-label>Setting</ion-label>
-    </ion-item>
+
+    <ion-menu-toggle>
+      <ion-item class="item" [button]="true" [routerLink]="['setting']">
+        <i-feather name="Settings" class="big"></i-feather>&nbsp; &nbsp;
+        <ion-label>Setting</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+
 
     <ion-segment value="default" mode="ios">
       <ion-segment-button value="default">

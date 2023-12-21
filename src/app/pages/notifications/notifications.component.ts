@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonButton, IonIcon, IonItem, IonLabel, IonList, IonListHeader, IonNote, IonText } from '@ionic/angular/standalone';
+import { IonButton, IonContent, IonIcon, IonItem, IonItemOption, IonItemOptions, IonItemSliding, IonLabel, IonList, IonListHeader, IonNote, IonText } from '@ionic/angular/standalone';
 import { FeatherIconsModule } from 'src/app/feather-icons/feather-icons.module';
 
 @Component({
@@ -7,7 +7,7 @@ import { FeatherIconsModule } from 'src/app/feather-icons/feather-icons.module';
   templateUrl: './notifications.component.html',
   styleUrls: ['./notifications.component.scss'],
   standalone:true,
-  imports:[IonList,IonListHeader,IonButton,IonItem,IonLabel,IonText,IonNote,IonIcon,FeatherIconsModule]
+  imports:[IonList,IonListHeader,IonContent,IonButton,IonItem,IonLabel,IonText,IonNote,IonIcon,FeatherIconsModule,IonItemSliding,IonItemOption,IonItemOptions]
 })
 export class NotificationsComponent  implements OnInit {
 

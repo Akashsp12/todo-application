@@ -1,15 +1,16 @@
-<ion-content [fullscreen]="true">
+<ion-header collapse="fade" class="ion-no-border"><app-header></app-header></ion-header>
 
-  <app-card></app-card>
+<ion-content >
 
+  <ion-router-outlet></ion-router-outlet>
 
 
 
   <!-- Bottom Fab -->
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-    <ion-fab-button [routerLink]="['/addtask']" >
+    <ion-fab-button [routerLink]="['addtask']" >
       <i-feather name="plus-square"  ></i-feather>
-      <ion-icon name="chevron-up-circle" color="success" ></ion-icon>
+      <!-- <ion-icon name="chevron-up-circle" color="success" ></ion-icon> -->
     </ion-fab-button>
   </ion-fab>
 </ion-content>

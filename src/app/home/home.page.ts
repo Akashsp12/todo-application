@@ -3,7 +3,7 @@ import { HeaderComponent } from '../components/header/header.component';
 import { DatepickerComponent } from '../components/datepicker/datepicker.component';
 import { FeatherIconsModule } from '../feather-icons/feather-icons.module';
 import { CardComponent } from '../components/card/card.component';
-import { IonContent, IonFab, IonFabButton, IonIcon } from '@ionic/angular/standalone';
+import { IonContent, IonFab, IonFabButton, IonHeader, IonIcon, IonRouterOutlet } from '@ionic/angular/standalone';
 import { RouterLink } from '@angular/router';
 ;
 
@@ -12,8 +12,8 @@ import { RouterLink } from '@angular/router';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  
-  imports: [IonContent, HeaderComponent, DatepickerComponent, FeatherIconsModule,CardComponent,IonFab,IonFabButton,IonIcon,RouterLink],
+
+  imports: [IonContent, HeaderComponent, DatepickerComponent, FeatherIconsModule, CardComponent, IonFab, IonFabButton, IonIcon, RouterLink,IonHeader,IonRouterOutlet],
 })
 export class HomePage {
 
@@ -23,8 +23,8 @@ export class HomePage {
 
 
   }
- 
-  
+
+
 
 
 }

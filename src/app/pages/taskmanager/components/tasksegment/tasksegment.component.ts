@@ -10,22 +10,22 @@ import { IonLabel, IonSegment, IonSegmentButton } from '@ionic/angular/standalon
   imports: [IonSegment, IonSegmentButton, IonLabel]
 })
 export class TasksegmentComponent implements OnInit {
-  sementValue: string = 'Task';
+  segmentValue: string = 'Task';
 
   constructor(private router: Router) { }
 
   ngOnInit() { }
 
-  segmentfunction(ev: any) {
+  segmentFunction(ev: any) {
     if (ev.detail.value === 'Stats') {
-      this.sementValue = 'Stats'
-      this.router.navigate(['task/stats'])
+      this.segmentValue = 'Stats'
+      this.router.navigate(['home/task/stats'])
     } else if (ev.detail.value === 'Focus') {
-      this.sementValue = 'Focus'
-      this.router.navigate(['task/focus-stats'])
+      this.segmentValue = 'Focus'
+      this.router.navigate(['home/task/focus-stats'])
     }
     else {
-      this.router.navigate(['task/mananger/config'])
+      this.router.navigate(['home/task/mananger/config'])
     }
   }
 

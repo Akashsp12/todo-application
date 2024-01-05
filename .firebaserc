@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "arthiyak-4990d": {
+      "hosting": {
+        "app": [
+          "arthiyak-4990d"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "arthiyak-4990d"
+  }
+}

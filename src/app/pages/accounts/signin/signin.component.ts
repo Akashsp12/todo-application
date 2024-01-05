@@ -3,7 +3,6 @@ import { IonButton, IonCheckbox, IonCol, IonContent, IonGrid, IonIcon, IonImg, I
 import { FeatherIconsModule } from 'src/app/feather-icons/feather-icons.module';
 import { ButtonComponent } from '../components/button/button.component';
 import { AccountProvidersComponent } from '../components/account-providers/account-providers.component';
-
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',

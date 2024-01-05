@@ -1,0 +1,40 @@
+ion-img {
+    width: 16rem;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+ion-title {
+    text-align: center;
+}
+
+ion-list {
+    margin-top: 3rem;
+    line-height: 3;
+    --width: 100%;
+
+    ion-item {
+        margin-top: 1rem;
+        width: 100%;
+        --padding: 0;
+        border-radius: 3rem;
+
+        ion-input {
+            font-size: 18px;
+            --padding-start: 15px;
+            height: 2rem;
+            --background: rgb(239, 239, 239);
+            --color: white --padding: 1rem;
+            border-radius: 3rem;
+
+            i-feather {
+                color: #E26255
+            }
+        }
+    }
+}
+
+ion-text {
+    text-align: end;
+}

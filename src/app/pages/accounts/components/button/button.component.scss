@@ -1,0 +1,16 @@
+ion-button {
+
+    width: 60%;
+    margin: 2% auto;
+    display: block;
+    --border-radius: 2rem;
+}
+
+@media (min-width:569px) {
+    ion-button {
+        width: 40%;
+        margin: 2% auto;
+        display: block;
+        --border-radius: 2rem;
+    }
+}

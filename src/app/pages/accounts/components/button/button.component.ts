@@ -1,6 +1,13 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { IonButton } from '@ionic/angular/standalone';
-import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, user } from '@angular/fire/auth';
+import {
+  Auth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+  GoogleAuthProvider
+} from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 
@@ -12,12 +19,12 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
   styleUrls: ['./button.component.scss'],
   standalone: true,
   imports: [IonButton],
-  providers:[]
+  providers: []
 })
 export class ButtonComponent implements OnInit {
-// ;private afAuth: AngularFireAuth
+  // ;private afAuth: AngularFireAuth
 
-  constructor() {
+  constructor(private auth: Auth) {
 
   }
 
@@ -25,15 +32,15 @@ export class ButtonComponent implements OnInit {
 
 
   async signin() {
-    // try {
-    //   const auth = getAuth();
-    //   const provider = new GoogleAuthProvider();
-    //   const result = await signInWithPopup(auth, provider);
-    //   const user = result.user;
-    //   console.log(user);
-    // } catch (error) {
-    //   console.error(error);
-    // }
+    try {
+      
+      const provider = new GoogleAuthProvider();
+      const result = await signInWithPopup(this.auth,provider);
+      const user = result.user;
+      console.log(user);
+    } catch (error) {
+      console.error(error);
+    }
 
   }
 

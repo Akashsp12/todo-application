@@ -8,7 +8,7 @@ import {
   signOut,
   GoogleAuthProvider
 } from '@angular/fire/auth';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
+
 
 
 
@@ -22,8 +22,6 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
   providers: []
 })
 export class ButtonComponent implements OnInit {
-  // ;private afAuth: AngularFireAuth
-
   constructor(private auth: Auth) {
 
   }

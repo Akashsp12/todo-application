@@ -1,14 +1,11 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { IonButton } from '@ionic/angular/standalone';
+import { IonButton, Platform } from '@ionic/angular/standalone';
 import {
   Auth,
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
   signInWithPopup,
-  signOut,
   GoogleAuthProvider
 } from '@angular/fire/auth';
-
+import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
 
 
 
@@ -22,20 +19,38 @@ import {
   providers: []
 })
 export class ButtonComponent implements OnInit {
-  constructor(private auth: Auth) {
+  constructor(private auth: Auth, private platform: Platform) {
 
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    if (this.platform.is('capacitor')) {
+      alert('core platform');
+    } else {
+      alert('something else');
+    }
+  }
 
 
   async signin() {
     try {
-      
-      const provider = new GoogleAuthProvider();
-      const result = await signInWithPopup(this.auth,provider);
-      const user = result.user;
-      console.log(user);
+      if (this.platform.is('capacitor')) {
+        try {
+          const googleUser = await GoogleAuth.signIn();
+          console.log('Google user:', googleUser);
+          // Proceed with handling the authenticated user data
+        } catch (error) {
+          console.error('Error during sign-in:', error);
+          // Log the error details for further analysis
+        }
+      } else {
+
+        const provider = new GoogleAuthProvider();
+        const result = await signInWithPopup(this.auth, provider);
+        const user = result.user;
+        console.log(user);
+      }
+
     } catch (error) {
       console.error(error);
     }

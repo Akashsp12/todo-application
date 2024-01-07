@@ -32,12 +32,13 @@ export class ButtonComponent implements OnInit {
   
   }
   async signin() {
-
+ 
+      const googleUser = await GoogleAuth.signIn();
+       console.log(googleUser);
+   
      
-        const googleUser = await GoogleAuth.signIn();
-        console.log(googleUser);
-        // Continue with the authentication process
-      
+        
+
   }
 
 }

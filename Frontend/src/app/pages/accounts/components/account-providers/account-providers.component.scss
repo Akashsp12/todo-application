@@ -12,15 +12,38 @@
         content: '';
         display: block;
         margin: auto 0%;
-        width: 40%;
-        border-bottom: 1px solid  #E26255;
+        width: 30%;
+        border-bottom: 1px solid #E26255;
     }
 
     ion-label::after {
         content: '';
         display: block;
         margin: auto 0%;
-        width: 40%;
+        width: 30%;
         border-bottom: 1px solid #E26255;
     }
+
+    .social {
+        width: 100%;
+
+        .img {
+            padding: 1.2rem;
+            width: fit-content;
+            border: 1px solid white;
+            display: flex;
+            margin: 0% auto;
+
+
+        }
+    }
+}
+
+ion-avatar {
+    width: 3rem;
+    height: 3rem;
+}
+
+ion-title {
+    text-align: center;
 }

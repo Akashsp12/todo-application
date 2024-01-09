@@ -8,12 +8,15 @@ import { AccountProvidersComponent } from '../components/account-providers/accou
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.scss'],
   standalone: true,
-  imports: [IonContent, IonImg, IonLabel, IonTitle, IonList, IonInput, IonItem, IonIcon, IonButton, FeatherIconsModule, IonCheckbox, IonText,ButtonComponent,AccountProvidersComponent]
+  imports: [IonContent, IonImg, IonLabel, IonTitle, IonList, IonInput, IonItem, IonIcon, IonButton, FeatherIconsModule, IonCheckbox, IonText, ButtonComponent, AccountProvidersComponent]
 })
 export class SigninComponent implements OnInit {
-
+  log: any;
   constructor() { }
 
   ngOnInit() { }
+  ionViewWillEnter() {
+    this.log = '../../../../assets/icon/Screenshot__348_-removebg-preview 2.png'
+  }
 
 }

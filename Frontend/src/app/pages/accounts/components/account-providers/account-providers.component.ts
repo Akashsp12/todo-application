@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { IonLabel } from '@ionic/angular/standalone';
+import { IonAvatar, IonButton, IonImg, IonItem, IonLabel, IonText, IonTitle } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-account-providers',
   templateUrl: './account-providers.component.html',
   styleUrls: ['./account-providers.component.scss'],
-  standalone:true,
-  imports:[IonLabel]
+  standalone: true,
+  imports: [IonLabel, IonAvatar, IonButton, IonText, IonTitle]
 })
-export class AccountProvidersComponent  implements OnInit {
+export class AccountProvidersComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
 }

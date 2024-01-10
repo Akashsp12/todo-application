@@ -1,6 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { IonButton, Platform } from '@ionic/angular/standalone';
 import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
+import { IonButton, Platform } from '@ionic/angular/standalone';
+
 
 
 
@@ -23,12 +24,12 @@ export class ButtonComponent implements OnInit {
 
   async initializeGoogleAuth() {
   
-      try {
-        await GoogleAuth.initialize({ grantOfflineAccess: true });
-        console.log('GoogleAuth initialized successfully');
-      } catch (error) {
-        console.error('Failed to initialize GoogleAuth', error);
-      }
+      // try {
+      //   await GoogleAuth.initialize({ grantOfflineAccess: true });
+      //   console.log('GoogleAuth initialized successfully');
+      // } catch (error) {
+      //   console.error('Failed to initialize GoogleAuth', error);
+      // }
   
   }
   async signin() {

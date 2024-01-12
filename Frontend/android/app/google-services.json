@@ -7,43 +7,31 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:152154204031:android:8993f86626189efceb9c4a",
+        "mobilesdk_app_id": "1:152154204031:android:b1cd0e553d522a0deb9c4a",
         "android_client_info": {
-          "package_name": "io.ionic.starter"
+          "package_name": "com.arthiyak"
         }
       },
       "oauth_client": [
         {
-          "client_id": "152154204031-7pq96lj8vlbgcsfdmh9kkpf4b9btkire.apps.googleusercontent.com",
+          "client_id": "152154204031-dnk0l8k27vdttis4gc1oirt43820n2db.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "io.ionic.starter",
+            "package_name": "com.arthiyak",
             "certificate_hash": "f0b8072b67316c280440681d32092e3b98c270ad"
           }
-        },
-        {
-          "client_id": "152154204031-c4nhc5v2oahtm5jd9cfhnfj83dasbe5c.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "io.ionic.starter",
-            "certificate_hash": "bb1a9d2ec6f1a367d8be69b4f74734cb282aa007"
-          }
-        },
-        {
-          "client_id": "152154204031-0k169b8hvl5gkrg3kbq3r4ctol94t03i.apps.googleusercontent.com",
-          "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDBlHy1WXLKhlNotnwXU41flrnTWHzRUXk"
+          "current_key": "AIzaSyDI30hc8U9fHGNzZSGgSlxF6tn17bovfXU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "152154204031-0k169b8hvl5gkrg3kbq3r4ctol94t03i.apps.googleusercontent.com",
+              "client_id": "152154204031-gaebq93m25k7adfr0otbqaj68olg8ljt.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

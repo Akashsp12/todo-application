@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">arthiyak</string>
     <string name="title_activity_main">arthiyak</string>
-    <string name="package_name">io.ionic.starter</string>
-    <string name="custom_url_scheme">io.ionic.starter</string>
-    <string name="server_client_id">52154204031-0k169b8hvl5gkrg3kbq3r4ctol94t03i.apps.googleusercontent.com</string>
+    <string name="package_name">com.arthiyak</string>
+    <string name="custom_url_scheme">com.arthiyak</string>
+    <string name="server_client_id">152154204031-gaebq93m25k7adfr0otbqaj68olg8ljt.apps.googleusercontent.com</string>
 </resources>

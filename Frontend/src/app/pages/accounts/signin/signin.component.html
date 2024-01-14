@@ -1,33 +1,33 @@
 <ion-content class="ion-padding">
   <ion-img [src]="this.log" loading="lazy"></ion-img>
   <ion-title>
-    Sign in to access your account
+    {{mainContent}}
   </ion-title>
 
   <ion-list lines="none">
-    <!-- <ion-item>
+    <ion-item>
       <ion-input labelPlacement="stacked" label="Email" placeholder="email@domain.com">
         <i-feather name="user" slot="start"></i-feather>
       </ion-input>
-    </ion-item> -->
+    </ion-item>
     <ion-item>
-      <ion-input labelPlacement="stacked" label="Email" placeholder="email@domain.com">
+      <ion-input labelPlacement="stacked" label="Password" placeholder="********">
         <i-feather name="mail" slot="start"></i-feather>
       </ion-input>
     </ion-item>
-    <ion-item>
-      <ion-input labelPlacement="stacked" label="Email" placeholder="email@domain.com">
+    <ion-item *ngIf="signupEnable">
+      <ion-input labelPlacement="stacked" label="Confirm Password" placeholder="********">
         <i-feather name="lock" slot="start"></i-feather>
       </ion-input>
     </ion-item>
   </ion-list>
   <ion-item lines="none">
-    <ion-text slot="end">
+    <ion-text slot="end" *ngIf="signEnable">
       Forget password ?
     </ion-text>
     <!-- <ion-checkbox labelPlacement="end" slot="start">Remember me</ion-checkbox> -->
   </ion-item>
   <br>
-  <app-button></app-button>
+  <app-button [buttonTitle]="buttonContent"></app-button>
 
-  <app-account-providers></app-account-providers>
+  <app-account-providers [title]="buttonContent"></app-account-providers>

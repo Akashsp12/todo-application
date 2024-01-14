@@ -1,5 +1,5 @@
 <div class="accounrProviders">
-  <ion-label>&nbsp;Or Sign in With&nbsp;</ion-label>
+  <ion-label>&nbsp;Or {{title}} With&nbsp;</ion-label>
   <div class="social">
     <div class="img">
       <ion-button fill="">
@@ -19,5 +19,6 @@
 
 </div>
 <ion-title>
-  New Account ? Signup
+  {{title === 'Sign up' ? "Already have an Account? sign in" : "create an account ? sign up"}}
+
 </ion-title>

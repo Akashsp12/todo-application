@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IonAvatar, IonButton, IonImg, IonItem, IonLabel, IonText, IonTitle } from '@ionic/angular/standalone';
 
 @Component({
@@ -9,9 +9,12 @@ import { IonAvatar, IonButton, IonImg, IonItem, IonLabel, IonText, IonTitle } fr
   imports: [IonLabel, IonAvatar, IonButton, IonText, IonTitle]
 })
 export class AccountProvidersComponent implements OnInit {
-
+  @Input() title: any
+  content: any;
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.content = this.title === 'Sign up' ? "Already have an Account? sign in" : "Don't have an account ? sign up"
+  }
 
 }

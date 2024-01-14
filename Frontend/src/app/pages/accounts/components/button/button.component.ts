@@ -1,5 +1,5 @@
 import { JsonPipe } from '@angular/common';
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
 import { IonButton, Platform } from '@ionic/angular/standalone';
 
@@ -16,6 +16,7 @@ import { IonButton, Platform } from '@ionic/angular/standalone';
   providers: []
 })
 export class ButtonComponent implements OnInit {
+  @Input() buttonTitle: any
 
   constructor(private platform: Platform) { }
 

@@ -14,7 +14,7 @@ import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
 export class AppComponent {
   constructor() {
     GoogleAuth.initialize({
-      clientId: '152154204031-0k169b8hvl5gkrg3kbq3r4ctol94t03i.apps.googleusercontent.com',
+      clientId: '152154204031-gaebq93m25k7adfr0otbqaj68olg8ljt.apps.googleusercontent.com',
       grantOfflineAccess: true,
       scopes: ["profile", "email"]
     })

@@ -1,5 +1,5 @@
 import { JsonPipe } from '@angular/common';
-import { Component, Input, OnInit, inject } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
 import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
 import { IonButton, Platform } from '@ionic/angular/standalone';
 
@@ -16,6 +16,7 @@ import { IonButton, Platform } from '@ionic/angular/standalone';
   providers: []
 })
 export class ButtonComponent implements OnInit {
+  @Output() accountSign: EventEmitter<any> = new EventEmitter();
   @Input() buttonTitle: any
 
   constructor(private platform: Platform) { }
@@ -35,12 +36,13 @@ export class ButtonComponent implements OnInit {
 
   }
   async signin() {
-    try {
-      const googleUser = await GoogleAuth.signIn();
-      this.user = googleUser
-    } catch (error) {
-      this.user = error
-    }
+    this.accountSign.emit()
+    // try {
+    //   const googleUser = await GoogleAuth.signIn();
+    //   this.user = googleUser
+    // } catch (error) {
+    //   this.user = error
+    // }
 
 
 

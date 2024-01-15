@@ -15,7 +15,7 @@
         <i-feather name="mail" slot="start"></i-feather>
       </ion-input>
     </ion-item>
-    <ion-item *ngIf="signupEnable">
+    <ion-item *ngIf="!signEnable">
       <ion-input labelPlacement="stacked" label="Confirm Password" placeholder="********">
         <i-feather name="lock" slot="start"></i-feather>
       </ion-input>
@@ -28,6 +28,6 @@
     <!-- <ion-checkbox labelPlacement="end" slot="start">Remember me</ion-checkbox> -->
   </ion-item>
   <br>
-  <app-button [buttonTitle]="buttonContent"></app-button>
+  <app-button [buttonTitle]="buttonContent" (accountSign)="signBtn()"></app-button>
 
   <app-account-providers [title]="buttonContent"></app-account-providers>

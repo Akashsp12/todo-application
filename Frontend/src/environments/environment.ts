@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  api: 'http://localhost:5000/arthiyak-v1/',
   firebaseConfig: {
     apiKey: "AIzaSyDMKDJ5msvtfsxRg_Iwi_UY0rvOUSAtqio",
     authDomain: "arthiyak-4990d.firebaseapp.com",

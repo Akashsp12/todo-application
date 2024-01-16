@@ -3,31 +3,35 @@
   <ion-title>
     {{mainContent}}
   </ion-title>
+  <form [formGroup]="reactiveForm" (ngSubmit)="onFormSubmitted()">
+    <ion-list lines="none">
+      <ion-item>
+        <ion-input type="email" labelPlacement="stacked" label="Email" placeholder="email@domain.com"
+          formControlName="email">
+          <i-feather name="user" slot="start"></i-feather>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="password" labelPlacement="stacked" label="Password" placeholder="********"
+          formControlName="password">
+          <i-feather name="mail" slot="start"></i-feather>
+        </ion-input>
+      </ion-item>
+      <ion-item *ngIf="!signEnable">
+        <ion-input labelPlacement="stacked" label="Confirm Password" placeholder="********">
+          <i-feather name="lock" slot="start"></i-feather>
+        </ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-item lines="none">
+      <ion-text slot="end" *ngIf="signEnable">
+        Forget password ?
+      </ion-text>
+      <!-- <ion-checkbox labelPlacement="end" slot="start">Remember me</ion-checkbox> -->
+    </ion-item>
+    <app-button [buttonTitle]="buttonContent" (accountSign)="signBtn()"></app-button>
+  </form>
 
-  <ion-list lines="none">
-    <ion-item>
-      <ion-input labelPlacement="stacked" label="Email" placeholder="email@domain.com">
-        <i-feather name="user" slot="start"></i-feather>
-      </ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input labelPlacement="stacked" label="Password" placeholder="********">
-        <i-feather name="mail" slot="start"></i-feather>
-      </ion-input>
-    </ion-item>
-    <ion-item *ngIf="!signEnable">
-      <ion-input labelPlacement="stacked" label="Confirm Password" placeholder="********">
-        <i-feather name="lock" slot="start"></i-feather>
-      </ion-input>
-    </ion-item>
-  </ion-list>
-  <ion-item lines="none">
-    <ion-text slot="end" *ngIf="signEnable">
-      Forget password ?
-    </ion-text>
-    <!-- <ion-checkbox labelPlacement="end" slot="start">Remember me</ion-checkbox> -->
-  </ion-item>
-  <br>
-  <app-button [buttonTitle]="buttonContent" (accountSign)="signBtn()"></app-button>
+
 
   <app-account-providers [title]="buttonContent"></app-account-providers>

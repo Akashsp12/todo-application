@@ -6,15 +6,15 @@ import { AccountProvidersComponent } from '../components/account-providers/accou
 import { Router } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { UsersService } from 'src/app/service/users/users.service';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.scss'],
   standalone: true,
-  imports: [IonContent, IonImg, IonLabel, IonTitle, IonList, IonInput, IonItem, IonIcon, IonButton, FeatherIconsModule, IonCheckbox, IonText, ButtonComponent, AccountProvidersComponent, NgIf],
-  providers:[UsersService]
+  imports: [IonContent, IonImg, IonLabel, IonTitle, IonList, IonInput, IonItem, IonIcon, IonButton, FeatherIconsModule, IonCheckbox, IonText, ButtonComponent, AccountProvidersComponent, NgIf, FormsModule, ReactiveFormsModule],
+  providers: [UsersService]
 })
 export class SigninComponent implements OnInit {
   log: any;
@@ -23,9 +23,12 @@ export class SigninComponent implements OnInit {
   buttonContent: any
   signEnable: boolean = false
   signupEnable: boolean = false
+  email = new FormControl('')
+  reactiveForm: any = FormGroup
+
   constructor(private router: Router,
     private user: UsersService,
-    private fb:ReactiveFormsModule
+    // private fb:ReactiveFormsModule
   ) { }
 
   ngOnInit() {
@@ -33,6 +36,11 @@ export class SigninComponent implements OnInit {
     this.mainContent = this.routePath === '/sign-up' ? "Sign up to create your account" : "Sign in to access your account"
     this.buttonContent = this.routePath === '/sign-up' ? "Sign up" : "Sign in"
     this.signEnable = this.routePath === '/sign-in' ? true : false
+
+    this.reactiveForm = new FormGroup({
+      email: new FormControl(null),
+      password: new FormControl(null)
+    })
 
   }
   ionViewWillEnter() {
@@ -46,11 +54,16 @@ export class SigninComponent implements OnInit {
 
 
   postUsers() {
-    this.user.createAccount().subscribe(async (res) => {
-      console.log(res)
-    })
+    console.log(this.email)
+    // this.user.createAccount().subscribe(async (res) => {
+    //   console.log(res)
+    // })
   }
   getUsers() {
     alert("users get by db")
+  }
+
+  onFormSubmitted() {
+    console.log(this.reactiveForm.value);
   }
 }

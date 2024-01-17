@@ -6,14 +6,14 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class UsersService {
-
+  url = 'http://localhost:5000/arthiyak-v1/'
   constructor(private http: HttpClient) { }
 
 
   createAccount(data: any) {
-    return this.http.post(environment.api + "create-account", data)
+    return this.http.post(this.url + "create-account", data)
   }
   login(data: any) {
-    return this.http.post(environment.api + "login", data)
+    return this.http.post(this.url + "login", data)
   }
 }

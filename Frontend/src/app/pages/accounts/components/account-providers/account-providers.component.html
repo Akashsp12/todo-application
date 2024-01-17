@@ -2,7 +2,7 @@
   <ion-label>&nbsp;Or {{title}} With&nbsp;</ion-label>
   <div class="social">
     <div class="img">
-      <ion-button fill="">
+      <ion-button fill="" (click)="signin()">
         <ion-avatar>
           <img alt="Silhouette of a person's head" src="../../../../../assets/google-logo-9808.png" loading="lazy" />
         </ion-avatar>
@@ -22,3 +22,4 @@
   {{title === 'Sign up' ? "Already have an Account? sign in" : "create an account ? sign up"}}
 
 </ion-title>
+{{user |json}}

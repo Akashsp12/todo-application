@@ -10,11 +10,10 @@ export class UsersService {
   constructor(private http: HttpClient) { }
 
 
-  createAccount() {
-    const data = {
-      user: "akash",
-      password: "sadbnadhabdsadnbd"
-    }
-    return this.http.post(environment.api +"create-account",data)
+  createAccount(data: any) {
+    return this.http.post(environment.api + "create-account", data)
+  }
+  login(data: any) {
+    return this.http.post(environment.api + "login", data)
   }
 }

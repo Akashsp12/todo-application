@@ -18,7 +18,7 @@
         </ion-input>
       </ion-item>
       <ion-item *ngIf="!signEnable">
-        <ion-input labelPlacement="stacked" label="Confirm Password" placeholder="********">
+        <ion-input type="password" labelPlacement="stacked" label="Confirm Password" placeholder="********" formControlName="confirmPassword">
           <i-feather name="lock" slot="start"></i-feather>
         </ion-input>
       </ion-item>
@@ -29,7 +29,7 @@
       </ion-text>
       <!-- <ion-checkbox labelPlacement="end" slot="start">Remember me</ion-checkbox> -->
     </ion-item>
-    <app-button [buttonTitle]="buttonContent" (accountSign)="signBtn()"></app-button>
+    <app-button [buttonTitle]="buttonContent" ></app-button>
   </form>
 
 

@@ -6,9 +6,9 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class UsersService {
-  // url = 'https://aarthiyak.onrender.com/arthiyak-v1/'
+  url = 'https://aarthiyak.onrender.com/arthiyak-v1/'
 
-  url = 'http://localhost:5000/arthiyak-v1/'
+  // url = 'http://localhost:5000/arthiyak-v1/'
   constructor(private http: HttpClient) { }
 
 

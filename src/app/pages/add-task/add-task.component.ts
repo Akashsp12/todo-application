@@ -61,8 +61,11 @@ export class AddTaskComponent implements OnInit {
   async taskSubmitted() {
     if (this.reactiveForm.valid && this.reactiveForm.status == "VALID") {
       console.log(this.reactiveForm);
-       this.taskService.AddtaskFunction(this.reactiveForm.value).subscribe(async (res: any) => {
-        console.log(res);
+      this.taskService.AddtaskFunction(this.reactiveForm.value).subscribe(async (res: any) => {
+        this.reactiveForm.reset()
+        if (res.status == "new task Created") {
+          this.reactiveForm.reset()
+        }
       })
     } else {
       alert("check the form before add")

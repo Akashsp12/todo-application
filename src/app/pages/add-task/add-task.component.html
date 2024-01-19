@@ -53,7 +53,7 @@
         <ion-textarea formControlName="taskDescription" label="task Description" labelPlacement="floating"
           fill="outline" [autoGrow]="true" labelPlacement="floating" placeholder="Enter text" rows="8"> </ion-textarea>
       </ion-item>
-      <ion-button expand="block" type="submit">Save</ion-button>
+      <ion-button expand="block" type="submit" [disabled]="!this.reactiveForm.valid">Save</ion-button>
     </ion-list>
   </form>
 </ion-content>

@@ -1,55 +1,61 @@
 <ion-content>
- <ion-header></ion-header>
-  <ion-list>
-    <ion-item>
-      <br>
-      &nbsp;
-      <ion-label></ion-label>
-      <ion-input label="Task Title" labelPlacement="floating" fill="outline" placeholder="Enter text"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-select label="Category" fill="outline" label-placement="floating">
-        <ion-select-option value="apple">Apple</ion-select-option>
-        <ion-select-option value="banana">Banana</ion-select-option>
-        <ion-select-option value="orange">Orange</ion-select-option>
-      </ion-select>
-    </ion-item>
-    <ion-item>
+  <ion-header></ion-header>
+  <form [formGroup]="reactiveForm" (ngSubmit)="taskSubmitted()">
+    <ion-list>
+      <ion-item>
+        <br>
+        &nbsp;
+        <ion-label></ion-label>
+        <ion-input label="Task Title" labelPlacement="floating" fill="outline" placeholder="Enter task title"
+          formControlName="taskTitle"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-select label="Category" fill="outline" label-placement="floating" formControlName="taskCategory">
+          <ion-select-option *ngFor="let item of todoCategories" [value]="item">{{item}}</ion-select-option>
 
-      <ion-select label="Priority" fill="outline" label-placement="floating">
-        <ion-select-option value="apple">Apple</ion-select-option>
-        <ion-select-option value="banana">Banana</ion-select-option>
-        <ion-select-option value="orange">Orange</ion-select-option>
-      </ion-select>
-    </ion-item>
+        </ion-select>
+      </ion-item>
+      <ion-item>
 
-    <ion-item class="accordion">
-      <ion-accordion-group>
-        <ion-accordion value="first">
-          <ion-item slot="header">
-            <ion-label>Date & Time</ion-label>
-          </ion-item>
-          <div class="ion-padding" slot="content">
-            <ion-datetime #datetime>
-              <ion-buttons slot="buttons">
-                <ion-button color="danger" (click)="datetime.reset()">Reset</ion-button>
-                <ion-button color="primary" (click)="datetime.confirm()">All Set</ion-button>
-              </ion-buttons>
-            </ion-datetime>
-          </div>
-        </ion-accordion>
-      </ion-accordion-group>
-    </ion-item>
+        <ion-select label="Priority" fill="outline" label-placement="floating" formControlName="taskPriority">
+          <ion-select-option value="High">High</ion-select-option>
+          <ion-select-option value="medium">medium</ion-select-option>
+          <ion-select-option value="low">low</ion-select-option>
+          <ion-select-option value="Dont">Don't Do</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item class="accordion">
+        <ion-accordion-group>
+          <ion-accordion value="first">
+            <ion-item slot="header">
+              <ion-label>Date & Time</ion-label>
+            </ion-item>
+            <div class="ion-padding" slot="content">
+              <!-- <ion-datetime formControlName="taskDatetime" [(ngModel)]="mydate">
+              </ion-datetime> -->
+              <ion-datetime-button datetime="datetime" presentation="time"></ion-datetime-button>
+
+              <ion-modal [keepContentsMounted]="true">
+                <ng-template>
+                  <ion-datetime id="datetime" formControlName="taskDatetime"   mode="ios"></ion-datetime>
+                </ng-template>
+              </ion-modal>
+            </div>
+          </ion-accordion>
+        </ion-accordion-group>
+      </ion-item>
 
 
 
-    <ion-item>
-      <ion-label></ion-label>
-      <ion-textarea label="Floating label" labelPlacement="floating" fill="outline" [autoGrow]="true"
-        labelPlacement="floating" placeholder="Enter text" rows="8"> </ion-textarea>
-    </ion-item>
-    <ion-button expand="block">Save</ion-button>
-  </ion-list>
+      <ion-item>
+        <ion-label></ion-label>
+        <ion-textarea formControlName="taskDescription" label="task Description" labelPlacement="floating"
+          fill="outline" [autoGrow]="true" labelPlacement="floating" placeholder="Enter text" rows="8"> </ion-textarea>
+      </ion-item>
+      <ion-button expand="block" type="submit">Save</ion-button>
+    </ion-list>
+  </form>
 </ion-content>
 
 

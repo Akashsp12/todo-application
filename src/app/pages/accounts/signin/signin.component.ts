@@ -121,6 +121,8 @@ export class SigninComponent implements OnInit {
 
   googleSignMethod(ev: any) {
     this.user.googleLoginMethod(ev).subscribe(async (res: any) => {
+
+      console.log(res)
       if (res.jwttoken) {
         localStorage.setItem("aarthiyaktoken", res.jwttoken)
         this.router.navigate(['/home'])

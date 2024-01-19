@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
-import { JsonserviceService } from 'src/app/services/jsonservice.service';
+
 Chart.register(...registerables);
 
 @Component({
@@ -10,7 +10,7 @@ Chart.register(...registerables);
   styleUrls: ['./focus-chart.component.scss'],
   standalone: true,
   imports: [],
-  providers: [JsonserviceService]
+  providers: []
 })
 export class FocusChartComponent implements OnInit {
   chart: any = [];
@@ -18,7 +18,7 @@ export class FocusChartComponent implements OnInit {
   data: any = [7, 5, 3, 5, 2, 7];
   color: any = ["red", "blue", "green"];
   label: any = ['Monday', 'tuesday', 'wdnesday', 'rusday', 'friday', 'saturaday', 'sunday'];
-  constructor(private json: JsonserviceService) { }
+  constructor() { }
 
   async ngOnInit() {
 

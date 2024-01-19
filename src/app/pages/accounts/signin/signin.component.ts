@@ -52,7 +52,7 @@ export class SigninComponent implements OnInit {
 
   }
   ngOnInit() {
- 
+
 
 
     this.routePath = this.router.url
@@ -73,6 +73,7 @@ export class SigninComponent implements OnInit {
 
   ionViewWillEnter() {
     const currentImage = localStorage.getItem("aarthiyaktoken");
+
     if (currentImage) {
       this.router.navigate(['/home'])
     }
@@ -103,18 +104,30 @@ export class SigninComponent implements OnInit {
 
 
   async createAccount(data: any) {
-    this.user.createAccount(data).subscribe(async (res) => {
+    this.user.createAccount(data).subscribe(async (res:any) => {
       console.log(res)
     })
   }
   async login(data: any) {
     this.user.login(data).subscribe(async (res: any) => {
-      localStorage.setItem("aarthiyaktoken", res.jwttoken)
-      this.router.navigate(['/home'])
+      console.log(res)
+      if (res.jwttoken) {
+        localStorage.setItem("aarthiyaktoken", res.jwttoken)
+        this.router.navigate(['/home'])
+      }
       console.log(res.jwttoken)
     })
   }
 
+  googleSignMethod(ev: any) {
+    this.user.googleLoginMethod(ev).subscribe(async (res: any) => {
 
+      console.log(res)
+      if (res.jwttoken) {
+        localStorage.setItem("aarthiyaktoken", res.jwttoken)
+        this.router.navigate(['/home'])
+      }
+    })
+  }
 
 }

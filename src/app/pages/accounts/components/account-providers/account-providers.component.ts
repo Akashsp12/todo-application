@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IonAvatar, IonButton, IonImg, IonItem, IonLabel, IonText, IonTitle } from '@ionic/angular/standalone';
 import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
 import { JsonPipe } from '@angular/common';
@@ -10,6 +10,7 @@ import { JsonPipe } from '@angular/common';
   imports: [IonLabel, IonAvatar, IonButton, IonText, IonTitle, JsonPipe]
 })
 export class AccountProvidersComponent implements OnInit {
+  @Output() googleSign = new EventEmitter<any>();
   @Input() title: any
   content: any;
   user: any;
@@ -34,16 +35,11 @@ export class AccountProvidersComponent implements OnInit {
 
     try {
       const googleUser = await GoogleAuth.signIn();
-      this.user = googleUser
+      this.googleSign.emit(googleUser)
     } catch (error) {
       this.user = error
     }
 
 
-
-
-
-
-    // 
   }
 }

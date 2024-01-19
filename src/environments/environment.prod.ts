@@ -1,4 +1,5 @@
 export const environment = {
+  api: 'https://aarthiyak.onrender.com/arthiyak-v1/',
   production: true,
   firebaseConfig: {
     apiKey: "AIzaSyDMKDJ5msvtfsxRg_Iwi_UY0rvOUSAtqio",

@@ -6,7 +6,9 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class UsersService {
-  url = 'http://localhost:5000/arthiyak-v1/'
+
+
+  url = environment.api
   constructor(private http: HttpClient) { }
 
 
@@ -16,4 +18,12 @@ export class UsersService {
   login(data: any) {
     return this.http.post(this.url + "login", data)
   }
+  googleLoginMethod(data: any) {
+    return this.http.post(this.url + "google-login-method", data)
+  }
+
+
+
+
+  
 }

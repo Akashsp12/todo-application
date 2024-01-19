@@ -104,7 +104,7 @@ export class SigninComponent implements OnInit {
 
 
   async createAccount(data: any) {
-    this.user.createAccount(data).subscribe(async (res) => {
+    this.user.createAccount(data).subscribe(async (res:any) => {
       console.log(res)
     })
   }

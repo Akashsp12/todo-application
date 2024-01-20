@@ -1,37 +1,41 @@
 {
   "project_info": {
-    "project_number": "152154204031",
-    "project_id": "arthiyak-4990d",
-    "storage_bucket": "arthiyak-4990d.appspot.com"
+    "project_number": "950069122964",
+    "project_id": "arthiyak-d0bae",
+    "storage_bucket": "arthiyak-d0bae.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:152154204031:android:b1cd0e553d522a0deb9c4a",
+        "mobilesdk_app_id": "1:950069122964:android:860ca9f77c36beead62181",
         "android_client_info": {
           "package_name": "com.arthiyak"
         }
       },
       "oauth_client": [
         {
-          "client_id": "152154204031-dnk0l8k27vdttis4gc1oirt43820n2db.apps.googleusercontent.com",
+          "client_id": "950069122964-1lvlucil1rishqht20nfvpjm8dpfcpqj.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.arthiyak",
-            "certificate_hash": "f0b8072b67316c280440681d32092e3b98c270ad"
+            "certificate_hash": "e4f77c6fe558e3820736863a8cead1bd533e7a9c"
           }
+        },
+        {
+          "client_id": "950069122964-mb9772brvrcdu8n28re5bgelg9a64gcl.apps.googleusercontent.com",
+          "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDI30hc8U9fHGNzZSGgSlxF6tn17bovfXU"
+          "current_key": "AIzaSyAGfb7bTiPxF2t_zGBbicv_mtR8SA4a2Ug"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "152154204031-gaebq93m25k7adfr0otbqaj68olg8ljt.apps.googleusercontent.com",
+              "client_id": "950069122964-ip7vfu37faao902o350p6uqqsc97ajkl.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -104,7 +104,7 @@ export class SigninComponent implements OnInit {
 
 
   async createAccount(data: any) {
-    this.user.createAccount(data).subscribe(async (res:any) => {
+    this.user.createAccount(data).subscribe(async (res: any) => {
       console.log(res)
     })
   }
@@ -120,6 +120,7 @@ export class SigninComponent implements OnInit {
   }
 
   googleSignMethod(ev: any) {
+
     this.user.googleLoginMethod(ev).subscribe(async (res: any) => {
 
       console.log(res)

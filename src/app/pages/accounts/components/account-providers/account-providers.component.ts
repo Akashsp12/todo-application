@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IonAvatar, IonButton, IonImg, IonItem, IonLabel, IonText, IonTitle } from '@ionic/angular/standalone';
-import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
+// import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
 import { JsonPipe } from '@angular/common';
+import { FirebaseAuthenticationService } from 'src/app/service/firebase/firebase-authentication.service';
 @Component({
   selector: 'app-account-providers',
   templateUrl: './account-providers.component.html',
@@ -14,32 +15,30 @@ export class AccountProvidersComponent implements OnInit {
   @Input() title: any
   content: any;
   user: any;
-  constructor() {
-    this.initializeGoogleAuth()
+  constructor(private firebaseService: FirebaseAuthenticationService) {
+
   }
 
   ngOnInit() {
     this.content = this.title === 'Sign up' ? "Already have an Account? sign in" : "Don't have an account ? sign up"
   }
-  async initializeGoogleAuth() {
 
+  async signin() {
     try {
-      await GoogleAuth.initialize({ grantOfflineAccess: true });
-      console.log('GoogleAuth initialized successfully');
+      const googleUser = await this.firebaseService.signInWithGoogle()
+      console.log()
+      this.googleSign.emit(googleUser.user?.providerData[0])
     } catch (error) {
-      console.error('Failed to initialize GoogleAuth', error);
+      console.log(error)
     }
+
+
 
   }
-  async signin() {
-
-    try {
-      const googleUser = await GoogleAuth.signIn();
-      this.googleSign.emit(googleUser)
-    } catch (error) {
-      this.user = error
-    }
 
 
+
+  signOut() {
+    this.firebaseService.signOut()
   }
 }

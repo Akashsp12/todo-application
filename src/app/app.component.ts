@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonApp, IonContent, IonHeader, IonRouterOutlet } from '@ionic/angular/standalone';
 import { HeaderComponent } from './components/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
-import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
+import { FirebaseAuthenticationService } from './service/firebase/firebase-authentication.service';
 
 
 @Component({
@@ -12,11 +12,11 @@ import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
   imports: [IonApp, IonRouterOutlet, IonHeader, HeaderComponent, IonContent, HttpClientModule],
 })
 export class AppComponent {
-  constructor() {
-    GoogleAuth.initialize({
-      clientId: '152154204031-gaebq93m25k7adfr0otbqaj68olg8ljt.apps.googleusercontent.com',
-      grantOfflineAccess: true,
-      scopes: ["profile", "email"]
-    })
+  constructor(private firebaseService: FirebaseAuthenticationService) {
+    this.initializeApp()
+
+  }
+  private async initializeApp(): Promise<void> {
+    await this.firebaseService.initialize();
   }
 }

@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { UsersService } from 'src/app/service/users/users.service';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ToastService } from 'src/app/service/toast/toast.service';
 
 @Component({
   selector: 'app-signin',
@@ -14,7 +15,7 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
   styleUrls: ['./signin.component.scss'],
   standalone: true,
   imports: [IonContent, IonImg, IonLabel, IonTitle, IonList, IonInput, IonItem, IonIcon, IonButton, FeatherIconsModule, IonCheckbox, IonText, ButtonComponent, AccountProvidersComponent, NgIf, FormsModule, ReactiveFormsModule],
-  providers: [UsersService]
+  providers: [UsersService, ToastService]
 })
 export class SigninComponent implements OnInit {
   log: any;
@@ -48,6 +49,7 @@ export class SigninComponent implements OnInit {
 
   constructor(private router: Router,
     private user: UsersService,
+    private notification: ToastService,
   ) {
 
   }
@@ -90,32 +92,66 @@ export class SigninComponent implements OnInit {
           const data = this.reactiveForm.value
           data.provider = 'email'
           await this.createAccount(data)
+        } else {
+          if (this.reactiveForm.controls.email.errors?.email) {
+            this.notification.error("please provide a valid email address", "Email Address")
+          } else if (this.reactiveForm.controls.password.errors?.minlength) {
+            this.notification.error("Password must be at least 8 characters long.", "Password");
+          }
+          else if (this.reactiveForm.controls.password.errors?.maxlength) {
+            this.notification.error("Password cannot exceed 16 characters.", "Password");
+          }
         }
+      } else {
+        this.notification.error("Password and Confirm Password do not match.", "Password Mismatch");
+
       }
 
     } else {
+      console.log(this.reactiveForm);
+
       if (this.reactiveForm.status === "VALID") {
+
         const data = this.reactiveForm.value
         await this.login(data)
+      } else {
+        if (this.reactiveForm.controls.email.errors?.email) {
+          this.notification.error("please provide a valid email address", "Email Address")
+        } else if (this.reactiveForm.controls.password.errors?.minlength) {
+          this.notification.error("Password must be at least 8 characters long.", "Password");
+        }
+        else if (this.reactiveForm.controls.password.errors?.maxlength) {
+          this.notification.error("Password cannot exceed 16 characters.", "Password");
+        }
       }
     }
-    console.log(this.reactiveForm);
+
   }
 
 
   async createAccount(data: any) {
     this.user.createAccount(data).subscribe(async (res: any) => {
-      console.log(res)
+      if (res.status === 'Account Created') {
+        this.notification.success(res.status, "signup")
+        this.router.navigate([res.redirect])
+      } else {
+        this.notification.info(res.status, "signup")
+      }
+
     })
   }
   async login(data: any) {
     this.user.login(data).subscribe(async (res: any) => {
       console.log(res)
+
       if (res.jwttoken) {
+        // this.notification.success("Welcome back! You have successfully logged in", "login")
         localStorage.setItem("aarthiyaktoken", res.jwttoken)
         this.router.navigate(['/home'])
+      } else {
+        this.notification.warning(res.status, "login")
       }
-      console.log(res.jwttoken)
+
     })
   }
 

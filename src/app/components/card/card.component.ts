@@ -22,9 +22,6 @@ export class CardComponent implements OnInit {
     this.route.params.subscribe((res) => {
       this.config = res['task'] == 'config' ? "config" : "home"
     })
-
-
-
   }
 
 }

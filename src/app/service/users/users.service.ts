@@ -9,7 +9,10 @@ export class UsersService {
 
 
   url = environment.api
-  constructor(private http: HttpClient) { }
+  token: any
+  constructor(private http: HttpClient) {
+    this.token = localStorage.getItem('aarthiyaktoken')
+  }
 
 
   createAccount(data: any) {
@@ -21,9 +24,11 @@ export class UsersService {
   googleLoginMethod(data: any) {
     return this.http.post(this.url + "google-login-method", data)
   }
+  getUserDetails() {
+    return this.http.get(this.url + "get-user-profile", { headers: { "token": this.token } })
+  }
 
 
 
 
-  
 }

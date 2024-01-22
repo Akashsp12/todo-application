@@ -4,6 +4,7 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { IonAccordion, IonAccordionGroup, IonButton, IonButtons, IonCol, IonContent, IonDatetime, IonDatetimeButton, IonGrid, IonHeader, IonInput, IonItem, IonLabel, IonList, IonModal, IonRadio, IonRadioGroup, IonRow, IonSelect, IonSelectOption, IonTextarea } from '@ionic/angular/standalone';
 import { FeatherIconsModule } from 'src/app/feather-icons/feather-icons.module';
 import { TaskService } from 'src/app/service/tasks/task.service';
+import { ToastService } from 'src/app/service/toast/toast.service';
 
 
 @Component({
@@ -47,7 +48,8 @@ export class AddTaskComponent implements OnInit {
   ];
   reactiveForm: any = FormGroup
   constructor(
-    private taskService: TaskService
+    private taskService: TaskService,
+    private toastr: ToastService
   ) { }
 
   ngOnInit() {
@@ -63,12 +65,14 @@ export class AddTaskComponent implements OnInit {
       console.log(this.reactiveForm);
       this.taskService.AddtaskFunction(this.reactiveForm.value).subscribe(async (res: any) => {
         this.reactiveForm.reset()
-        if (res.status == "new task Created") {
+        if (res.status == "Task Created Successfully") {
+          this.toastr.success(res.status, "Task")
           this.reactiveForm.reset()
         }
       })
     } else {
-      alert("check the form before add")
+
+      this.toastr.info(' Check the form before add', "Task")
     }
 
   }

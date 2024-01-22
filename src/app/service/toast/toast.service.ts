@@ -8,7 +8,7 @@ export class ToastService {
   toastrSetting: any
   constructor(private toastr: ToastrService) {
     this.toastrSetting = {
-      timeOut: 4000,
+      timeOut: 2000,
       progressBar: true,
       limit: 3,
       Animation: 'fade',

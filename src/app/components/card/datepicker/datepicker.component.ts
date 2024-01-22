@@ -13,7 +13,7 @@ import { FeatherIconsModule } from 'src/app/feather-icons/feather-icons.module';
   imports: [CommonModule, IonHeader, IonToolbar, IonDatetime, IonModal, IonTitle, IonButton, IonContent, IonRefresher, IonRefresherContent, IonLabel, IonList, FeatherIconsModule]
 })
 export class DatepickerComponent implements OnInit {
-[x: string]: any;
+  [x: string]: any;
   temp: number = 0
   finalresult: any[] = [];
   result: any[] = ['1', '2', '3']
@@ -28,7 +28,7 @@ export class DatepickerComponent implements OnInit {
   currentMonth: any;
   currentYear: any;
   previousMonth: any;
-new: any;
+  new: any;
 
 
   constructor() { }
@@ -52,7 +52,9 @@ new: any;
     this.currentMonth = date.getMonth()
     this.currentYear = date.getFullYear()
     let currentDates = new Date(this.currentYear, this.currentMonth, this.currentDate)
+    console.log(currentDates)
     this.dateInString = this.getDateLong(currentDates)
+    console.log( this.dateInString);
     this.monthYear = this.getMonthYearLong(this.dateInString)
     this.sliceDate = new Date(this.currentYear, this.currentMonth + this.temp, this.currentDate).getDate()
     this.getAllDates()
@@ -61,7 +63,7 @@ new: any;
     console.log(ev)
     // alert(ev)
   }
-  monthPicker(ev: any,modal:any) {
+  monthPicker(ev: any, modal: any) {
 
 
     const date = new Date(ev.detail.value)
@@ -79,6 +81,7 @@ new: any;
     this.sliceDate = 0
     if (this.scrollContainerRef && this.scrollContainerRef.nativeElement) {
       this.scrollContainerRef.nativeElement.scrollTo({ left: 0, behavior: 'smooth' });
+
     }
     // modal.dismiss()
   }
@@ -86,9 +89,7 @@ new: any;
 
 
   getAllDates() {
-
-
-    this.finalresult = [] 
+    this.finalresult = []
     const daysInMonths = new Date(this.currentYear, this.currentMonth + this.temp + 1, 0).getDate()
     for (let i = 1; i <= daysInMonths; i++) {
       const daysInMonthss = new Date(this.currentYear, this.currentMonth + this.temp, i)
@@ -97,6 +98,7 @@ new: any;
 
     }
   }
+  
   getDateLong(date: any) {
     return date.toLocaleDateString('en-us', {
       weekday: 'long',

@@ -39,6 +39,7 @@ export const routes: Routes = [
       {
         path: 'settings',
         loadComponent: () => import('./pages/setting/setting.component').then((m) => m.SettingComponent),
+        canActivate: [AuthGuard]
       },
       {
         path: 'task',

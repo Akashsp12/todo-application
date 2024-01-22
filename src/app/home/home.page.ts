@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from '../components/header/header.component';
-import { DatepickerComponent } from '../components/datepicker/datepicker.component';
+import { DatepickerComponent } from '../components/card/datepicker/datepicker.component';
 import { FeatherIconsModule } from '../feather-icons/feather-icons.module';
 import { CardComponent } from '../components/card/card.component';
 import { IonContent, IonFab, IonFabButton, IonHeader, IonIcon, IonRouterOutlet } from '@ionic/angular/standalone';

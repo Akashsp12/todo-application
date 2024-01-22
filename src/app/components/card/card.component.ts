@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { IonContent, IonItem, IonItemDivider, IonItemGroup, IonLabel, IonList } from '@ionic/angular/standalone';
 
 import { CardinfoComponent } from './cardinfo/cardinfo.component';
-import { DatepickerComponent } from '../datepicker/datepicker.component';
+import { DatepickerComponent } from './datepicker/datepicker.component';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

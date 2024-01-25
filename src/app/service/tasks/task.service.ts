@@ -17,4 +17,7 @@ export class TaskService {
     console.log(data)
     return this.http.post(this.url + "add-new-task", data, { headers: { "token": this.token } })
   }
+  getTaskFromDb(data: any) {
+    return this.http.post(this.url + "get-task-from-db", data, { headers: { "token": this.token } })
+  }
 }

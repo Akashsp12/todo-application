@@ -2,8 +2,8 @@
 
     <p id="datePickerModel" expand="block">{{monthYear}}</p>
     <div class="cal" #scrollContainer>
-        <ul *ngFor="let item of finalresult.slice(sliceDate>0?sliceDate-2:sliceDate)">
-            <button *ngIf="dateInString" (click)="hi(item)"
+        <ul *ngFor="let item of finalResult.slice(sliceDate>0?sliceDate-2:sliceDate)">
+            <button *ngIf="dateInString" (click)="getDayByDate(item)"
                 [ngStyle]="{'color': item === dateInString ? 'red' : 'black', 'border-bottom': (item === dateInString ? '5px solid #E26255' : 'none')}">
                 <ion-label>
                     {{item.split(',')[1].split(' ')[2]}} <br> {{ (item.split(',')[0] | titlecase) | slice:0:3}}

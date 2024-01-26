@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TasksegmentComponent } from './components/tasksegment/tasksegment.component';
 import { IonContent, IonHeader, IonRouterOutlet } from '@ionic/angular/standalone';
 import { CardComponent } from 'src/app/components/card/card.component';
-import { DatepickerComponent } from 'src/app/components/datepicker/datepicker.component';
+import { DatepickerComponent } from 'src/app/components/card/datepicker/datepicker.component';
 
 @Component({
   selector: 'app-taskmanager',

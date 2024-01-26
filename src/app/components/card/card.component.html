@@ -1,17 +1,18 @@
 <ion-content>
-  <app-datepicker></app-datepicker>
+  <app-datepicker (DateEmitter)="getCurrentDateResult($event)"></app-datepicker>
+  <h2 *ngIf="todoStatus">No result Found on this Date</h2>
   <ion-list>
-    <ion-item-group>
+    <ion-item-group *ngIf="progressData?.length>0">
       <ion-item-divider>
         <ion-label> On Progress </ion-label>
       </ion-item-divider>
-      <app-cardinfo [taskconfig]="config"></app-cardinfo>
+      <app-cardinfo [taskconfig]="config" [progressData]="progressData"></app-cardinfo>
     </ion-item-group>
-    <ion-item-group>
+    <ion-item-group *ngIf="completedData?.length>0">
       <ion-item-divider>
         <ion-label>Completed </ion-label>
       </ion-item-divider>
-      <app-cardinfo  [taskconfig]="config"></app-cardinfo>
+      <app-cardinfo [taskconfig]="config" [progressData]="completedData"></app-cardinfo>
     </ion-item-group>
   </ion-list>
 </ion-content>

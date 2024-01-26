@@ -34,34 +34,38 @@ export class DatepickerComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.getweekEnd()
+    this.getWeekEnd()
   }
   getMoreDates() {
     this.temp++
-    this.getweekEnd()
+    this.getWeekEnd()
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes)
   }
 
-  getweekEnd() {
+  getWeekEnd() {
 
     const date = new Date()
     this.currentDate = date.getDate()
     this.currentMonth = date.getMonth()
     this.currentYear = date.getFullYear()
     let currentDates = new Date(this.currentYear, this.currentMonth, this.currentDate)
-    this.DateEmitter.emit(currentDates)
+
     this.dateInString = this.getDateLong(currentDates)
+    this.DateEmitter.emit( this.dateInString)
  
     this.monthYear = this.getMonthYearLong(this.dateInString)
     this.sliceDate = new Date(this.currentYear, this.currentMonth + this.temp, this.currentDate).getDate()
     this.getAllDates()
   }
-  hi(ev: any) {
+
+  getDayByDate(ev: any) {
     this.DateEmitter.emit(ev)
   }
+
+
   monthPicker(ev: any, modal: any) {
     const date = new Date(ev.detail.value)
     this.cuurentDate = date.getDate();
@@ -72,6 +76,9 @@ export class DatepickerComponent implements OnInit {
     this.monthYear = this.getMonthYearLong(dateInString2)
     this.getAllDates()
     this.sliceDate = 0
+
+
+    
     if (this.scrollContainerRef && this.scrollContainerRef.nativeElement) {
       this.scrollContainerRef.nativeElement.scrollTo({ left: 0, behavior: 'smooth' });
     }

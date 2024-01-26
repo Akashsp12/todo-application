@@ -1,4 +1,4 @@
-<ion-item-sliding>
+<ion-item-sliding *ngFor="let item of Datas">
   <div *ngIf="taskconfig === 'config'">
     <ion-item-options side="start">
       <ion-item-option color="danger">Delete</ion-item-option>
@@ -7,25 +7,25 @@
   <ion-item class="ion-no-padding">
     <ion-card>
       <ion-card-header>
-        <ion-card-subtitle>Hobby</ion-card-subtitle>
-        <ion-card-title>Meeting With Client</ion-card-title>
+        <ion-card-subtitle>{{item.taskCategory}}</ion-card-subtitle>
+        <ion-card-title>{{item.taskTitle}}</ion-card-title>
         <i-feather name="star"></i-feather>
       </ion-card-header>
       <ion-card-content>
         <ion-label>
-          Redesign motion graphic and call to client. Also ask him to give more info. about project.
+          {{item.taskDescription}}
         </ion-label>
         <hr style="background-color: white;">
         <ion-item class="ion-no-border ion-no-padding">
           <ion-label>24th April <br> 10:05 am</ion-label>
-          <ion-label class="end" slot="end">Completed</ion-label>
+          <ion-label class="end" slot="end">{{item.taskStatus}}</ion-label>
         </ion-item>
       </ion-card-content>
     </ion-card>
   </ion-item>
   <div *ngIf="taskconfig === 'config'">
     <ion-item-options side="end">
-      <ion-item-option color="success">Edit Todo</ion-item-option>
+      <ion-item-option color="success" (click)="editTodo(item._id)">Edit Todo</ion-item-option>
     </ion-item-options>
   </div>
   <div *ngIf="taskconfig === 'home'">

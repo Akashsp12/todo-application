@@ -1,10 +1,10 @@
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { IonContent, IonItem, IonItemDivider, IonItemGroup, IonLabel, IonList } from '@ionic/angular/standalone';
 
 import { CardinfoComponent } from './cardinfo/cardinfo.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { TaskService } from 'src/app/service/tasks/task.service';
 
 @Component({
@@ -12,21 +12,31 @@ import { TaskService } from 'src/app/service/tasks/task.service';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
   standalone: true,
-  imports: [IonLabel, IonList, NgFor, IonItem, IonItemDivider, IonItemGroup, CardinfoComponent, IonContent, DatepickerComponent],
+  imports: [IonLabel, IonList, NgFor, IonItem, IonItemDivider, IonItemGroup, CardinfoComponent, IonContent, DatepickerComponent, NgIf],
   providers: [TaskService]
 })
 export class CardComponent implements OnInit {
   a = [1, 2, 5]
   config: any;
-  constructor(private route: ActivatedRoute, private taskSr: TaskService) { }
+  progressData: any;
+  completedData: any;
+  todoStatus: any;
+  constructor(private route: ActivatedRoute, private taskSr: TaskService, private router: Router) { }
 
   ngOnInit() {
-    this.route.params.subscribe((res) => {
-      this.config = res['task'] == 'config' ? "config" : "home"
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        // Trick the Router into believing it's last link wasn't previously loaded
+        this.route.params.subscribe((res) => {
+          this.config = res['task'] == 'config' ? "config" : "home"
+        })
+      }
     })
+
   }
 
   getCurrentDateResult(date: any) {
+    console.log(date)
     const passDate = { result: this.dateSplit(date) }
     this.getTaskByDate(passDate)
   }
@@ -35,20 +45,29 @@ export class CardComponent implements OnInit {
 
 
   getTaskByDate(date: any) {
-    this.taskSr.getTaskFromDb(date).subscribe(async (res) => {
+    this.taskSr.getTaskFromDb(date).subscribe(async (res: any) => {
       console.log(res);
+
+      this.todoStatus = res.dataEmpty
+
+      if (res.result) {
+        this.progressData = res.result.filter((x: any) => x.taskStatus === 'inProgress')
+        this.completedData = res.result.filter((x: any) => x.taskStatus !== 'inProgress')
+        console.log(this.completedData.length);
+        console.log(this.progressData.length);
+      }
     })
   }
 
 
 
-
-
-
-
   dateSplit(date: any) {
     var dateObject = new Date(date);
-    var datePart = dateObject.toISOString().split('T')[0];
-    return datePart
+    return this.toJSONLocal(dateObject)
+  }
+  toJSONLocal(date: any) {
+    var local = new Date(date);
+    local.setMinutes(date.getMinutes() - date.getTimezoneOffset());
+    return local.toJSON().slice(0, 10);
   }
 }

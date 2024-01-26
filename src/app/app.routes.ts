@@ -28,6 +28,10 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/add-task/add-task.component').then((m) => m.AddTaskComponent),
       },
       {
+        path: 'edit-task/:taskId',
+        loadComponent: () => import('./pages/add-task/add-task.component').then((m) => m.AddTaskComponent),
+      },
+      {
         path: 'focus-mode',
         loadComponent: () => import('./pages/focus-mode/focus-mode.component').then((m) => m.FocusModeComponent),
       },

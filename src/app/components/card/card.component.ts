@@ -47,9 +47,7 @@ export class CardComponent implements OnInit {
   getTaskByDate(date: any) {
     this.taskSr.getTaskFromDb(date).subscribe(async (res: any) => {
       console.log(res);
-
       this.todoStatus = res.dataEmpty
-
       if (res.result) {
         this.progressData = res.result.filter((x: any) => x.taskStatus === 'inProgress')
         this.completedData = res.result.filter((x: any) => x.taskStatus !== 'inProgress')
@@ -59,6 +57,7 @@ export class CardComponent implements OnInit {
     })
   }
 
+ 
 
 
   dateSplit(date: any) {

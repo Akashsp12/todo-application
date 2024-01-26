@@ -30,5 +30,13 @@ export class TaskService {
     console.log(data);
     return this.http.put(this.url + "update-task-with-id", data, { headers: { "token": this.token } })
   }
+  updateStatusForTodo(id: any) {
+
+    return this.http.get(this.url + `update-status-on-todo/${id}`, { headers: { "token": this.token } })
+  }
+  removeTodo(id: any) {
+
+    return this.http.delete(this.url + `remove-on-todo/${id}`, { headers: { "token": this.token } })
+  }
 
 }

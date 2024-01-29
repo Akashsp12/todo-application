@@ -39,4 +39,10 @@ export class TaskService {
     return this.http.delete(this.url + `remove-on-todo/${id}`, { headers: { "token": this.token } })
   }
 
+  // FocusTiming
+  sendFocusTime(data: any) {
+
+    return this.http.post(this.url + 'post-focus-timing', data, { headers: { "token": this.token } })
+  }
+
 }

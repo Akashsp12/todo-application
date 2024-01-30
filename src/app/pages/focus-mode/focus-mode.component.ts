@@ -40,6 +40,9 @@ export class FocusModeComponent implements OnInit, AfterViewInit {
       this.myCircle.nativeElement.setAttribute('stroke-dasharray', this.dasharray);
     }
   }
+  ionViewWillEnter() {
+  
+  }
   ngOnInit() {
     this.getFun()
 

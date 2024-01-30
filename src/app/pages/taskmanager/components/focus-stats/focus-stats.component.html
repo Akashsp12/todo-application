@@ -1,8 +1,10 @@
 <ion-content>
     <div class="focusStats">
-        <app-focuscard></app-focuscard>
-        <app-focuscard></app-focuscard>
+        <app-focuscard [histroy]="this.todayFocus" [title]="'Today'"></app-focuscard>
+        <app-focuscard [histroy]="this.allFocus" [title]="'Total'"></app-focuscard>
+      
+   
     </div>
-    <app-focussegment-button></app-focussegment-button>
+    <!-- <app-focussegment-button></app-focussegment-button> -->
     <app-focus-chart></app-focus-chart>
 </ion-content>

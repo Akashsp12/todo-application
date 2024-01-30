@@ -102,7 +102,6 @@ export class AddTaskComponent implements OnInit {
           if (res.status == "Task Updated") {
             this.toastr.success(res.status, "Task Update")
             this.router.navigate(['home/task/mananger/config'])
-
           }
         })
       } else {
@@ -116,7 +115,6 @@ export class AddTaskComponent implements OnInit {
       }
 
     } else {
-
       this.toastr.info(' Check the form before add', "Task")
     }
 

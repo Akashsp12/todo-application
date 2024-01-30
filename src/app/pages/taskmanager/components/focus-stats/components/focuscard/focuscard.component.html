@@ -2,12 +2,12 @@
   <ion-card-header>
     <ion-item lines="none">
       <i-feather name="clock"></i-feather> &nbsp;&nbsp;
-      <ion-label>Today Time Duration</ion-label>
+      <ion-label>{{title}} Time Duration</ion-label>
     </ion-item>
 
   </ion-card-header>
 
   <ion-card-content>
-   <span>7</span>h <span>35</span>m
+    <span>{{focusTime?.hours}}</span>h <span>{{focusTime?.minutes}}</span>m
   </ion-card-content>
 </ion-card>

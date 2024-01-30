@@ -22,16 +22,13 @@ export class CardComponent implements OnInit {
   completedData: any;
   todoStatus: any;
   constructor(private route: ActivatedRoute, private taskSr: TaskService, private router: Router) { }
-
-  ngOnInit() {
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        // Trick the Router into believing it's last link wasn't previously loaded
-        this.route.params.subscribe((res) => {
-          this.config = res['task'] == 'config' ? "config" : "home"
-        })
-      }
+  ionViewWillEnter(){
+    this.route.params.subscribe((res) => {
+      this.config = res['task'] == 'config' ? "config" : "home"
     })
+  }
+  ngOnInit() {
+ 
 
   }
 

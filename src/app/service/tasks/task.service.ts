@@ -44,5 +44,8 @@ export class TaskService {
 
     return this.http.post(this.url + 'post-focus-timing', data, { headers: { "token": this.token } })
   }
+  getAllFocusTime() {
+    return this.http.get(this.url + 'get-focus-all-time', { headers: { "token": this.token } })
+  }
 
 }

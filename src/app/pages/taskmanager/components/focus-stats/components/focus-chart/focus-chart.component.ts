@@ -17,7 +17,7 @@ export class FocusChartComponent implements OnInit {
   @ViewChild('canvas') myCircle!: ElementRef<SVGCircleElement>;
   data: any = [7, 5, 3, 5, 2, 7];
   color: any = ["red", "blue", "green"];
-  label: any = ['Monday', 'tuesday', 'wdnesday', 'rusday', 'friday', 'saturaday', 'sunday'];
+  label: any = ['Monday', 'tuesday', 'wdnesday', 'thrusday', 'friday', 'saturaday', 'sunday'];
   constructor() { }
 
   async ngOnInit() {

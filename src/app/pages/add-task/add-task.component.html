@@ -11,7 +11,7 @@
       </ion-item>
       <ion-item>
         <ion-select label="Category" fill="outline" label-placement="floating" formControlName="taskCategory">
-          <ion-select-option *ngFor="let item of todoCategories" [value]="item">{{item}}</ion-select-option>
+          <ion-select-option *ngFor="let item of categoryList" [value]="item.categoryName">{{item.categoryName}}</ion-select-option>
 
         </ion-select>
       </ion-item>

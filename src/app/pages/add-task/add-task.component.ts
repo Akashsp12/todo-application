@@ -51,6 +51,7 @@ export class AddTaskComponent implements OnInit {
   selectedDate: any; // Declare a variable to store the selected date
   routeName: any;
   taskId: any;
+  categoryList: any;
   constructor(
     private taskService: TaskService,
     private toastr: ToastService,
@@ -59,7 +60,7 @@ export class AddTaskComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
-   
+    this.getAllCategory()
     this.routeName = this.router.url.split('/')[2]
 
 
@@ -120,4 +121,16 @@ export class AddTaskComponent implements OnInit {
 
   }
 
+  getAllCategory() {
+    this.taskService.getallCategory().subscribe(async (res: any) => {
+      if(res.result.length===0){
+        this.toastr.info("Category List is empty Please add few category on Task manager -> status Section", "Category List")
+      }else{
+        this.categoryList = res.result
+      }
+     
+
+    })
+
+  }
 }

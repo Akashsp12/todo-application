@@ -48,4 +48,12 @@ export class TaskService {
     return this.http.get(this.url + 'get-focus-all-time', { headers: { "token": this.token } })
   }
 
+  // Category
+  getallCategory() {
+    return this.http.get(this.url + 'get-all-category', { headers: { "token": this.token } })
+  }
+  postCategory(data: any) {
+    return this.http.post(this.url + 'post-category-to-backend', data, { headers: { "token": this.token } })
+  }
+
 }
